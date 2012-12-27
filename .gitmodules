@@ -1,0 +1,3 @@
+[submodule "IQSerialization.git"]
+	path = IQSerialization.git
+	url = git@github.com:evolvIQ/iqserialization.git
