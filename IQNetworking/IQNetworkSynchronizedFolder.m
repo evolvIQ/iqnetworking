@@ -7,9 +7,66 @@
 //
 
 #import "IQNetworkSynchronizedFolder.h"
+#import "IQTransferManager.h"
+
+static IQTransferManager* globalTransferManager = nil;
+
+@interface IQNetworkSynchronizedFolder () {
+    IQTransferManager* transferManager;
+}
+@end
 
 @implementation IQNetworkSynchronizedFolder
++ (IQNetworkSynchronizedFolder*)folderWithName:(NSString*)name inParent:(NSString*)path
+{
+    return [[IQNetworkSynchronizedFolder alloc] initWithName:name parent:path];
+}
++ (IQNetworkSynchronizedFolder*)folderWithName:(NSString*)name
+{
+    NSString* parent = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+    return [[IQNetworkSynchronizedFolder alloc] initWithName:name parent:parent];
+}
 
+- (id)initWithName:(NSString*)name parent:(NSString*)parent
+{
+    self = [super init];
+    if(self) {
+        self->_name = name;
+        self->_localPath = [parent stringByAppendingPathComponent:name];
+        if(!globalTransferManager) {
+            // Use the same transfer manager for all folders by default
+            globalTransferManager = [[IQTransferManager alloc] init];
+        }
+        self->transferManager = globalTransferManager;
+    }
+    return self;
+}
+
+- (IQNetworkSynchronizedFile*) addFileWithURL:(NSURL*)url
+{
+    NSString* name = nil;
+    if(_cacheFileNaming) {
+        name = _cacheFileNaming(url);
+    }
+    if(name == nil) {
+        NSString* fn = url.lastPathComponent;
+        NSString* ext = @"";
+        if(fn.length == 0) {
+            fn = url.host;
+        } else {
+            ext = fn.pathExtension,
+            fn = fn.stringByDeletingPathExtension;
+        }
+        if(fn.length == 0) {
+            fn = @"untitled";
+        }
+        if(ext.length > 0) {
+            ext = [@"." stringByAppendingString:ext];
+        }
+        name = [NSString stringWithFormat:@"%@_%08x%@", fn, url.hash, ext];
+    }
+    IQNetworkSynchronizedFile* file = [[IQNetworkSynchronizedFile alloc] init];
+}
 @end
 
 @interface IQNetworkSynchronizedFile () {

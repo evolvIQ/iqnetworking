@@ -14,12 +14,13 @@ static NSMutableSet* activeTransferManagers = nil;
 
 @interface IQTransferItem () {
 @private
-    NSURL* url;
     IQTransferManager* manager;
     int statusCode;
-    NSDictionary* headers;
+    NSDictionary* responseHeaders;
+    NSMutableURLRequest* request;
+    BOOL started, done;
 }
-+ (IQTransferItem*)_transferItemWithUrl:(NSURL*)url manager:(IQTransferManager*)manager;
+- (id) initWithURL:(NSURL*)url manager:(IQTransferManager*)mgr;
 - (void)_start;
 
 @property (nonatomic, copy) IQDataHandler dataHandler;
@@ -33,6 +34,7 @@ static NSMutableSet* activeTransferManagers = nil;
 @interface IQTransferManager () {
     NSMutableArray* queue;
     NSMutableSet* progress;
+    NSMutableDictionary* defaultHeaders;
 }
 
 - (void)_transferCompleted:(IQTransferItem*)item;
@@ -42,7 +44,7 @@ static NSMutableSet* activeTransferManagers = nil;
 @end
 
 @implementation IQTransferManager
-@synthesize paused, ignoreErrorStatusCodes, timeoutInterval, followRedirects;
+@synthesize paused, ignoreErrorStatusCodes, timeoutInterval, followRedirects, doneHandler;
 
 - (id) init
 {
@@ -57,11 +59,6 @@ static NSMutableSet* activeTransferManagers = nil;
     return self;
 }
 
-- (void) dealloc
-{
-    NSLog(@"Deallocing IQTransferManager");
-}
-
 - (void) waitUntilEmpty
 {
     while(true) {
@@ -72,15 +69,28 @@ static NSMutableSet* activeTransferManagers = nil;
     }
 }
 
-- (IQTransferItem*) downloadDataProgressivelyFromURL:(NSURL*)url handler:(IQDataHandler)progressiveHandler done:(IQGenericCallback)doneHandler errorHandler:(IQErrorHandler)errorHandler
+- (IQTransferItem*) postData:(NSData*)postData andDownloadProgressivelyFromURL:(NSURL*)url  handler:(IQDataHandler)progressiveHandler done:(IQGenericCallback)done errorHandler:(IQErrorHandler)errorHandler
 {
-    IQTransferItem* item = [IQTransferItem _transferItemWithUrl:url manager:self];
+    IQTransferItem* item = [self downloadDataProgressivelyFromURL:url handler:progressiveHandler done:done errorHandler:errorHandler];
+    item.requestMethod = @"POST";
+    item.requestBody = postData;
+    return item;
+}
+
+- (IQTransferItem*) downloadDataProgressivelyFromURL:(NSURL*)url handler:(IQDataHandler)progressiveHandler done:(IQGenericCallback)done errorHandler:(IQErrorHandler)errorHandler
+{
+    IQTransferItem* item = [[IQTransferItem alloc] initWithURL:url manager:self];
     item.dataHandler = progressiveHandler;
-    item.doneHandler = doneHandler;
+    item.doneHandler = done;
     item.errorHandler = errorHandler;
     item.timeoutInterval = timeoutInterval;
     item.ignoreErrorStatusCodes = self.ignoreErrorStatusCodes;
     item.followRedirects = self.followRedirects;
+    if(defaultHeaders) {
+        for(NSString* key in defaultHeaders.keyEnumerator) {
+            [item setValue:defaultHeaders[key] forRequestHeaderField:key];
+        }
+    }
     @synchronized(self) {
         [queue addObject:item];
         if(activeTransferManagers == nil) {
@@ -111,7 +121,43 @@ static NSMutableSet* activeTransferManagers = nil;
     } errorHandler:errorHandler];
 }
 
-- (IQTransferItem*) downloadFromURL:(NSURL*)url toFile:(NSFileHandle*)file done:(IQGenericCallback)doneHandler errorHandler:(IQErrorHandler)errorHandler
+- (IQTransferItem*) postData:(NSData*)postData andDownloadDataFromURL:(NSURL*)url handler:(IQResultHandler)handler errorHandler:(IQErrorHandler)errorHandler
+{
+    __block NSData* data = nil;
+    __block BOOL isMutable = NO;
+    return [self postData:postData andDownloadProgressivelyFromURL:url handler:^(NSData *result) {
+        if(data == nil) {
+            data = result;
+        } else {
+            if(!isMutable) data = [data mutableCopy];
+            [(NSMutableData*)data appendData:result];
+        }
+        return YES;
+    } done:^{
+        handler(data);
+    } errorHandler:errorHandler];
+}
+
+- (IQTransferItem*) postForm:(NSDictionary*)formData andDownloadDataFromURL:(NSURL*)url handler:(IQResultHandler)handler errorHandler:(IQErrorHandler)errorHandler
+{
+    
+    NSMutableString* postData = [[NSMutableString alloc] init];
+    for(NSString* key in formData.keyEnumerator) {
+        NSString* value = [[formData objectForKey:key] description];
+        NSString* escapedValue = CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)value, NULL, (CFStringRef)@"=&", kCFStringEncodingUTF8));
+        if(postData.length > 0) [postData appendString:@"&"];
+        [postData appendString:key];
+        [postData appendString:@"="];
+        [postData appendString:escapedValue];
+    }
+    NSLog(@"Posting %@", postData);
+    NSData* rawdata = [postData dataUsingEncoding:NSUTF8StringEncoding];
+    IQTransferItem* item = [self postData:rawdata andDownloadDataFromURL:url handler:handler errorHandler:errorHandler];
+    item.postDataContentType = [IQMIMEType MIMETypeWithType:@"application" subtype:@"x-www-form-urlencoded"];
+    return item;
+}
+
+- (IQTransferItem*) downloadFromURL:(NSURL*)url toFile:(NSFileHandle*)file done:(IQGenericCallback)done errorHandler:(IQErrorHandler)errorHandler
 {
     return [self downloadDataProgressivelyFromURL:url handler:^(NSData *result) {
         @try {
@@ -123,18 +169,23 @@ static NSMutableSet* activeTransferManagers = nil;
             return NO;
         }
     } done:^{
-        doneHandler();
+        done();
     } errorHandler:errorHandler];
 }
 
-- (IQTransferItem*) downloadFromURL:(NSURL*)url toPath:(NSString*)path done:(IQGenericCallback)doneHandler errorHandler:(IQErrorHandler)errorHandler
+- (IQTransferItem*) downloadFromURL:(NSURL*)url toPath:(NSString*)path done:(IQGenericCallback)done errorHandler:(IQErrorHandler)errorHandler
 {
     __block NSFileHandle* file = nil;
     return [self downloadDataProgressivelyFromURL:url handler:^(NSData *result) {
-        if(!file) file = [NSFileHandle fileHandleForWritingAtPath:path];
         if(!file) {
-            errorHandler([NSError errorWithDomain:kIQTransferManagerErrorDomain code:kIQTransferCannotOpenOutputFile userInfo:[NSDictionary dictionaryWithObject:@"Unable to open output file" forKey:NSLocalizedDescriptionKey]]);
-            return NO;
+            file = [NSFileHandle fileHandleForWritingAtPath:path];
+            if([[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil]) {
+                file = [NSFileHandle fileHandleForWritingAtPath:path];
+            }
+            if(!file) {
+                errorHandler([NSError errorWithDomain:kIQTransferManagerErrorDomain code:kIQTransferCannotOpenOutputFile userInfo:[NSDictionary dictionaryWithObject:@"Unable to open output file" forKey:NSLocalizedDescriptionKey]]);
+                return NO;
+            }
         }
         @try {
             [file writeData:result];
@@ -149,7 +200,7 @@ static NSMutableSet* activeTransferManagers = nil;
             return NO;
         }
     } done:^{
-        doneHandler();
+        done();
     } errorHandler:^(NSError* err) {
         errorHandler(err);
         if(file) {
@@ -187,6 +238,41 @@ static NSMutableSet* activeTransferManagers = nil;
     } errorHandler:errorHandler];
 }
 
+- (IQTransferItem*) postObject:(id)object format:(IQSerializationFormat)postFormat andDownloadDictionaryFromURL:(NSURL*)url handler:(IQDictionaryHandler)handler format:(IQSerializationFormat)responseFormat errorHandler:(IQErrorHandler)errorHandler
+{
+    IQSerialization* ser = [IQSerialization new];
+    NSData* postData = [ser serializeObject:object format:postFormat flags:IQSerializationFlagsDefault];
+    if(!postData) {
+        errorHandler(ser.error);
+        return nil;
+    }
+    IQTransferItem* item = [self postData:postData andDownloadDataFromURL:url handler:^(NSData *result) {        
+        NSDictionary* dict = [ser dictionaryFromData:result format:responseFormat];
+        if(!dict) {
+            errorHandler(ser.error);
+        } else {
+            handler(dict);
+        }
+    } errorHandler:errorHandler];
+    IQMIMEType* type = [IQMIMEType MIMETypeForSerializationFormat:postFormat];
+    if(type) {
+        [item setValue:type.RFCString forRequestHeaderField:@"Content-Type"];
+    }
+    return item;
+}
+
+- (void) setDefaultValue:(NSString*)value forRequestHeaderField:(NSString *)field
+{
+    if(defaultHeaders == nil && value) {
+        defaultHeaders = [NSMutableDictionary dictionaryWithCapacity:1];
+    }
+    if(!value) {
+        [defaultHeaders removeObjectForKey:field];
+    } else {
+        [defaultHeaders setObject:value forKey:field];
+    }
+}
+
 #pragma mark - Internal methods
 
 - (int)_maxConcurrent
@@ -215,18 +301,21 @@ static NSMutableSet* activeTransferManagers = nil;
 - (void)_transferCompleted:(IQTransferItem*)item
 {
     @synchronized(self) {
-        NSLog(@"Transfer completed");
         [progress removeObject:item];
         [self _checkStart];
+        [IQProgressAgregator progressChangedForObject:item];
+        if(progress.count == 0 && queue.count == 0 && doneHandler) {
+            doneHandler();
+        }
     }
 }
 
-- (void)_startTransfer:(IQTransferItem*)transfer
+- (void)_startTransfer:(IQTransferItem*)item
 {
     @synchronized(self) {
-        NSLog(@"Starting transfer");
-        [progress addObject:transfer];
-        [transfer _start];
+        [progress addObject:item];
+        [item _start];
+        [IQProgressAgregator progressChangedForObject:item];
     }
 }
 
@@ -245,16 +334,20 @@ static NSMutableSet* activeTransferManagers = nil;
 
 @implementation IQTransferItem
 @synthesize size, progress, ignoreErrorStatusCodes;
-@synthesize dataHandler, doneHandler, errorHandler, timeoutInterval, followRedirects;
+@synthesize dataHandler, doneHandler, errorHandler, followRedirects;
 
-+ (IQTransferItem*)_transferItemWithUrl:(NSURL*)url manager:(IQTransferManager*)manager
+- (id) initWithURL:(NSURL*)url manager:(IQTransferManager*)mgr
 {
-    IQTransferItem* transfer = [[IQTransferItem alloc] init];
-    if(transfer) {
-        transfer->url = url;
-        transfer->manager = manager;
+    self = [super init];
+    if(self) {
+        NSURLRequestCachePolicy cachePolicy = NSURLRequestUseProtocolCachePolicy;
+        if(!mgr.ignoreCache) {
+            cachePolicy = NSURLRequestReloadIgnoringCacheData;
+        }
+        request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:cachePolicy timeoutInterval:mgr.timeoutInterval];
+        manager = mgr;
     }
-    return transfer;
+    return self;
 }
 
 - (void)startImmediately
@@ -264,7 +357,6 @@ static NSMutableSet* activeTransferManagers = nil;
 
 - (void)_start
 {
-    NSURLRequest* request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:self.timeoutInterval];
     if(![NSThread isMainThread]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [NSURLConnection connectionWithRequest:request delegate:self];
@@ -280,7 +372,7 @@ static NSMutableSet* activeTransferManagers = nil;
 {
     statusCode = (int)response.statusCode;
     size = [[response.allHeaderFields objectForKey:@"Content-Length"] longLongValue];
-    headers = response.allHeaderFields;
+    responseHeaders = response.allHeaderFields;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -298,10 +390,10 @@ static NSMutableSet* activeTransferManagers = nil;
     [connection cancel];
 }
 
-- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response
+- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)req redirectResponse:(NSURLResponse *)response
 {
     if(followRedirects) {
-        return request;
+        return req;
     } else {
         return nil;
     }    
@@ -309,6 +401,7 @@ static NSMutableSet* activeTransferManagers = nil;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    done = YES;
     [manager _transferCompleted:self];
     if(!ignoreErrorStatusCodes && statusCode != 200) {
         NSString* str = nil;
@@ -340,7 +433,22 @@ static NSMutableSet* activeTransferManagers = nil;
 
 - (NSString*) valueForResponseHeaderField:(NSString*)field
 {
-    return [headers valueForKey:field];
+    return [responseHeaders valueForKey:field];
+}
+
+- (NSString*) valueForRequestHeaderField:(NSString*)field
+{
+    return [request valueForHTTPHeaderField:field];
+}
+
+- (void) setValue:(NSString*)value forRequestHeaderField:(NSString *)field
+{
+    if(started) {
+        [NSException raise:@"RequestAlreadySent" format:@"Cannot modify request headers, request is already sent"];
+        return;
+    }
+    NSLog(@"Setting header field %@ to %@", field, value);
+    [request setValue:value forHTTPHeaderField:field];
 }
 
 - (IQMIMEType*) contentType
@@ -348,6 +456,83 @@ static NSMutableSet* activeTransferManagers = nil;
     NSString* ct = [self valueForResponseHeaderField:@"Content-Type"];
     if(!ct) return nil;
     return [IQMIMEType MIMETypeWithRFCString:ct];
+}
+
+- (IQMIMEType*) postDataContentType
+{
+    NSString* ct = [self valueForRequestHeaderField:@"Content-Type"];
+    if(!ct) return nil;
+    return [IQMIMEType MIMETypeWithRFCString:ct];
+}
+
+- (void) setPostDataContentType:(IQMIMEType *)postDataContentType
+{
+    [self setValue:postDataContentType.RFCString forRequestHeaderField:@"Content-Type"];
+}
+
+#pragma mark - Properties
+
+- (void) setTimeoutInterval:(NSTimeInterval)timeoutInterval
+{
+    if(started) {
+        [NSException raise:@"RequestAlreadySent" format:@"Cannot modify request property, request is already sent"];
+        return;
+    }
+    request.timeoutInterval = timeoutInterval;
+}
+
+- (NSTimeInterval) timeoutInterval
+{
+    return request.timeoutInterval;
+}
+
+- (void) setRequestBody:(NSData*)requestBody
+{
+    if(started) {
+        [NSException raise:@"RequestAlreadySent" format:@"Cannot modify request property, request is already sent"];
+        return;
+    }
+    request.HTTPBody = requestBody;
+}
+
+- (NSData*) requestBody
+{
+    return request.HTTPBody;
+}
+
+- (void) setRequestBodyStream:(NSInputStream *)requestBodyStream
+{
+    if(started) {
+        [NSException raise:@"RequestAlreadySent" format:@"Cannot modify request property, request is already sent"];
+        return;
+    }
+    request.HTTPBodyStream = requestBodyStream;
+}
+
+- (NSInputStream*) requestBodyStream
+{
+    return request.HTTPBodyStream;
+}
+
+- (void) setRequestMethod:(NSString *)requestMethod
+{
+    if(started) {
+        [NSException raise:@"RequestAlreadySent" format:@"Cannot modify request property, request is already sent"];
+        return;
+    }
+    request.HTTPMethod = requestMethod;
+}
+
+- (NSString*) requestMethod
+{
+    return request.HTTPMethod;
+}
+
+#pragma mark - IQProgressible
+
+- (BOOL) isDone
+{
+    return done;
 }
 
 @end

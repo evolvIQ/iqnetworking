@@ -13,12 +13,18 @@
 #define kIQNetworkSynchronizationErrorHandleAlreadyOpen -1001
 
 @class IQNetworkSynchronizedFile;
+typedef NSString* (^IQCacheFileNaming)(NSURL* url);
 
 @interface IQNetworkSynchronizedFolder : NSObject
 
 + (IQNetworkSynchronizedFolder*)folderWithName:(NSString*)name;
-+ (IQNetworkSynchronizedFolder*)folderWithName:(NSString*)name inFolder:(IQNetworkSynchronizedFolder*)parent;
++ (IQNetworkSynchronizedFolder*)folderWithName:(NSString*)name inParent:(NSString*)path;
+- (id)initWithName:(NSString*)name parent:(NSString*)parent;
+@property (nonatomic, readonly) NSString* name;
+@property (nonatomic, readonly) NSString* localPath;
+@property (nonatomic, copy) IQCacheFileNaming cacheFileNaming;
 
+- (IQNetworkSynchronizedFile*) addFileWithURL:(NSURL*)url;
 @end
 
 @interface IQNetworkSynchronizedFile : NSObject

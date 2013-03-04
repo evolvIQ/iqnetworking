@@ -107,6 +107,8 @@
 		FF2506FA168E459000667FD9 /* IQStreamingMediaCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2506F6168E459000667FD9 /* IQStreamingMediaCache.m */; };
 		FF2508791693B8A800667FD9 /* IQTransferManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2508781693B8A800667FD9 /* IQTransferManagerTests.m */; };
 		FF25087A1693B8A800667FD9 /* IQTransferManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2508781693B8A800667FD9 /* IQTransferManagerTests.m */; };
+		FF7FB6E316AE6098008B6C60 /* IQProgressAgregator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF7FB6E116AE6098008B6C60 /* IQProgressAgregator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF7FB6E416AE6098008B6C60 /* IQProgressAgregator.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7FB6E216AE6098008B6C60 /* IQProgressAgregator.m */; };
 		FFB0285D1666D57400CED715 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB0285C1666D57400CED715 /* Cocoa.framework */; };
 		FFB0286E1666D57400CED715 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E07F1665613200A8867C /* SenTestingKit.framework */; };
 		FFB0286F1666D57400CED715 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB0285C1666D57400CED715 /* Cocoa.framework */; };
@@ -126,6 +128,7 @@
 		FFB6E09A166571CB00A8867C /* IQReachableStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6E099166571CB00A8867C /* IQReachableStatus.m */; };
 		FFB6E0A71666123500A8867C /* IQNetworkSynchronizedFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6E0A61666123500A8867C /* IQNetworkSynchronizedFolder.m */; };
 		FFB6E0AD16661A3900A8867C /* IQTransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6E0AC16661A3900A8867C /* IQTransferManager.m */; };
+		FFBAC78516E5639800D69BCF /* IQProgressAgregator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF7FB6E116AE6098008B6C60 /* IQProgressAgregator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +212,8 @@
 		FF2506F6168E459000667FD9 /* IQStreamingMediaCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQStreamingMediaCache.m; sourceTree = "<group>"; };
 		FF2508771693B8A800667FD9 /* IQTransferManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTransferManagerTests.h; sourceTree = "<group>"; };
 		FF2508781693B8A800667FD9 /* IQTransferManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTransferManagerTests.m; sourceTree = "<group>"; };
+		FF7FB6E116AE6098008B6C60 /* IQProgressAgregator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQProgressAgregator.h; sourceTree = "<group>"; };
+		FF7FB6E216AE6098008B6C60 /* IQProgressAgregator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQProgressAgregator.m; sourceTree = "<group>"; };
 		FFB0285B1666D57400CED715 /* IQNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IQNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB0285C1666D57400CED715 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		FFB0285F1666D57400CED715 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -414,6 +419,8 @@
 				FF25064B168CD6E300667FD9 /* IQHTTPServer.m */,
 				FF2506E8168DA3A600667FD9 /* IQMIMEType.h */,
 				FF2506E9168DA3A600667FD9 /* IQMIMEType.m */,
+				FF7FB6E116AE6098008B6C60 /* IQProgressAgregator.h */,
+				FF7FB6E216AE6098008B6C60 /* IQProgressAgregator.m */,
 				FF2506F5168E459000667FD9 /* IQStreamingMediaCache.h */,
 				FF2506F6168E459000667FD9 /* IQStreamingMediaCache.m */,
 				FFB6E0731665613100A8867C /* Supporting Files */,
@@ -473,6 +480,7 @@
 				FF2506C0168CDCC100667FD9 /* NSData+Base64.h in Headers */,
 				FF2506EA168DA3A600667FD9 /* IQMIMEType.h in Headers */,
 				FF2506F7168E459000667FD9 /* IQStreamingMediaCache.h in Headers */,
+				FF7FB6E316AE6098008B6C60 /* IQProgressAgregator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +514,7 @@
 				FF2506CE168CE96200667FD9 /* IQTransferManager.h in Headers */,
 				FF2506EB168DA3A600667FD9 /* IQMIMEType.h in Headers */,
 				FF2506F8168E459000667FD9 /* IQStreamingMediaCache.h in Headers */,
+				FFBAC78516E5639800D69BCF /* IQProgressAgregator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,6 +774,7 @@
 				FF2506B2168CDAB800667FD9 /* yajl.c in Sources */,
 				FF2506EC168DA3A600667FD9 /* IQMIMEType.m in Sources */,
 				FF2506F9168E459000667FD9 /* IQStreamingMediaCache.m in Sources */,
+				FF7FB6E416AE6098008B6C60 /* IQProgressAgregator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

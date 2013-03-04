@@ -57,6 +57,7 @@
     BOOL headersSent;
     NSStringEncoding encoding;
     BOOL didSetContentType;
+    NSInputStream* writeStream;
     NSMutableData* writeBuffer;
     IQHTTPRequestCallback currentCallback;
     NSInteger seq;
@@ -177,7 +178,7 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
             port = ntohs(sa->sin_port);
         }
         CFRelease(data);
-
+        
         CFRunLoopSourceRef runLoopSource = CFSocketCreateRunLoopSource(kCFAllocatorDefault, serverSocket, 1);
         actualRunLoop = runLoop ? runLoop : [NSRunLoop currentRunLoop];
         CFRunLoopAddSource([actualRunLoop getCFRunLoop], runLoopSource, kCFRunLoopCommonModes);
@@ -407,7 +408,7 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
         connection->dispatchOnOpen = (CFHTTPMessageRef)CFRetain(msg);
         return;
     }
-    NSURL* url = objc_unretainedObject(CFHTTPMessageCopyRequestURL(msg));
+    NSURL* url = CFBridgingRelease(CFHTTPMessageCopyRequestURL(msg));
     NSString* resourceSpecifier = url.resourceSpecifier;
     NSRange sr = NSMakeRange(0, resourceSpecifier.length);
     
@@ -474,6 +475,9 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
         return;
     }
     if(self.hasSpaceAvailable) {
+        if(writeStream != nil) {
+            [self writeStream:writeStream];
+        }
         // Drain any buffer first
         if(![self _drainBuffers]) {
             // Buffer draining choked the output stream for now.
@@ -555,7 +559,7 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
         }
         sbuf = nsbuf;
     }
-
+    
 }
 - (NSString*) valueForRequestHeaderField:(NSString*)field
 {
@@ -568,7 +572,6 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
 
 - (void) _readRequest
 {
-    IQHTTPServerRequest* keepSelf = self;
     if(!requestHeaders) {
         requestHeaders = CFHTTPMessageCreateEmpty(kCFAllocatorDefault, YES);
         remainingBody = 0LL;
@@ -587,7 +590,6 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
             [self _readChunk:buf length:len];
         }
     }
-    keepSelf = nil;
 }
 
 - (IQHTTPServer*) server
@@ -690,7 +692,7 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
             IQMutableMIMEType* mime = [IQMutableMIMEType MIMETextTypeWithSubtype:@"plain" encoding:encoding];
             CFHTTPMessageSetHeaderFieldValue(responseHeaders, (__bridge CFStringRef)@"Content-Type", (__bridge CFStringRef)[mime RFCString]);
         }
-        NSData* headerBuffer = (__bridge NSData *)(CFHTTPMessageCopySerializedMessage(responseHeaders));
+        NSData* headerBuffer = CFBridgingRelease(CFHTTPMessageCopySerializedMessage(responseHeaders));
         if(writeBuffer.length > 0) [NSException raise:@"InvalidHeaderState" format:@"Header buffer not empty"];
         writeBuffer = [NSMutableData dataWithData:headerBuffer];
         headersSent = YES;
@@ -702,6 +704,36 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
 - (void)writeString:(NSString*)string
 {
     [self writeData:[string dataUsingEncoding:encoding allowLossyConversion:YES]];
+}
+
+- (void)writeStream:(NSInputStream *)stream
+{
+    BOOL shouldDrainBuffers = NO;
+    if(writeStream != stream) {
+        writeStream = stream;
+        if(writeBufferLimit <= 0) {
+            writeBufferLimit = 4096;
+        } else if(writeBufferLimit > 102400) {
+            writeBufferLimit = 102400;
+        }
+        shouldDrainBuffers = YES;
+    }
+    if(!writeBuffer) writeBuffer = [NSMutableData dataWithCapacity:writeBufferLimit];
+    NSInteger currentLength = writeBuffer.length;
+    NSInteger remainingCapacity = writeBufferLimit-currentLength;
+    if(writeBuffer.length < writeBufferLimit) {
+        [writeBuffer setLength:writeBufferLimit];
+    }
+    NSInteger read = [writeStream read:((unsigned char*)writeBuffer.mutableBytes)+currentLength maxLength:remainingCapacity];
+    if(read < remainingCapacity) {
+        if(read <= 0) {
+            writeStream = nil;
+        }
+        [writeBuffer setLength:currentLength+read];
+    }
+    if(shouldDrainBuffers && self.hasSpaceAvailable) {
+        [self _drainBuffers];
+    }
 }
 
 - (NSInteger)writeData:(NSData*)data

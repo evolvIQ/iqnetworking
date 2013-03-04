@@ -139,6 +139,8 @@ typedef void (^IQHTTPResponseReader)(IQHTTPServerRequest* request, NSMutableData
  */
 - (NSInteger) writeData:(NSData*)data;
 
+- (void) writeStream:(NSInputStream*)stream;
+
 /**
  Writes a block of bytes to the client. This method will never block. If buffering
  is disabled, the method will return the number of bytes sent. If buffering is enabled,

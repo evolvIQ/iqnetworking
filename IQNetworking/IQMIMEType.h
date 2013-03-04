@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IQSerialization.h"
 
 @interface IQMIMEType : NSObject <NSCopying, NSMutableCopying>
 + (id) MIMETypeWithMIMEType:(IQMIMEType*)other;
@@ -14,6 +15,8 @@
 + (id) MIMETypeWithType:(NSString*)type subtype:(NSString*)subtype;
 + (id) MIMETypeWithType:(NSString*)type subtype:(NSString*)subtype parameters:(NSDictionary*)parameters;
 + (id) MIMETextTypeWithSubtype:(NSString*)subtype encoding:(NSStringEncoding)encoding;
+
++ (id) MIMETypeForSerializationFormat:(IQSerializationFormat)format;
 
 - (id) initWithRFCString:(NSString*)typeString;
 - (id) initWithType:(NSString*)type subtype:(NSString*)subtype parameters:(NSDictionary*)parameters;

@@ -41,7 +41,22 @@
 {
     return [[IQMutableMIMEType MIMETextTypeWithSubtype:subtype encoding:encoding] copy];
 }
-
++ (id) MIMETypeForSerializationFormat:(IQSerializationFormat)format
+{
+    switch(format) {
+        case IQSerializationFormatJSON:
+            return [IQMIMEType MIMETypeWithType:@"application" subtype:@"json"];
+        case IQSerializationFormatSimpleXML:
+        case IQSerializationFormatXMLPlist:
+            return [IQMIMEType MIMETypeWithType:@"application" subtype:@"xml"];
+        case IQSerializationFormatYAML:
+            return [IQMIMEType MIMETypeWithType:@"application" subtype:@"x-yaml"];
+        case IQSerializationFormatBinaryPlist:
+            return [IQMIMEType MIMETypeWithType:@"application" subtype:@"x-apple-binary-plist"];
+        default:
+            return nil;
+    }
+}
 - (id) initWithRFCString:(NSString*)typeString
 {
     self = [super init];
