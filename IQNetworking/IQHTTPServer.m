@@ -572,6 +572,7 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
 
 - (void) _readRequest
 {
+    IQHTTPServerRequest* current = self; // Hold a reference for ARC
     if(!requestHeaders) {
         requestHeaders = CFHTTPMessageCreateEmpty(kCFAllocatorDefault, YES);
         remainingBody = 0LL;
@@ -590,6 +591,7 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
             [self _readChunk:buf length:len];
         }
     }
+    current = nil;
 }
 
 - (IQHTTPServer*) server

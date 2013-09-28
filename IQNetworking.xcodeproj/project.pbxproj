@@ -21,6 +21,12 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		FF24FDB517F775D10006FC44 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF24FDB417F775D10006FC44 /* SystemConfiguration.framework */; };
+		FF24FDB617F776A70006FC44 /* IQProgressAgregator.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7FB6E216AE6098008B6C60 /* IQProgressAgregator.m */; };
+		FF24FDB817F779B40006FC44 /* IQNetworkSynchronizedFolderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF24FDB717F779B40006FC44 /* IQNetworkSynchronizedFolderTest.m */; };
+		FF24FDBA17F77A540006FC44 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF24FDB917F77A540006FC44 /* XCTest.framework */; };
+		FF24FDBB17F77A5D0006FC44 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF24FDB917F77A540006FC44 /* XCTest.framework */; };
+		FF24FDBC17F77B670006FC44 /* IQNetworkSynchronizedFolderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF24FDB717F779B40006FC44 /* IQNetworkSynchronizedFolderTest.m */; };
 		FF25064C168CD6E300667FD9 /* IQHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = FF25064A168CD6E300667FD9 /* IQHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF25064D168CD6E300667FD9 /* IQHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF25064B168CD6E300667FD9 /* IQHTTPServer.m */; };
 		FF25064E168CD6E300667FD9 /* IQHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF25064B168CD6E300667FD9 /* IQHTTPServer.m */; };
@@ -110,7 +116,6 @@
 		FF7FB6E316AE6098008B6C60 /* IQProgressAgregator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF7FB6E116AE6098008B6C60 /* IQProgressAgregator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF7FB6E416AE6098008B6C60 /* IQProgressAgregator.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7FB6E216AE6098008B6C60 /* IQProgressAgregator.m */; };
 		FFB0285D1666D57400CED715 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB0285C1666D57400CED715 /* Cocoa.framework */; };
-		FFB0286E1666D57400CED715 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E07F1665613200A8867C /* SenTestingKit.framework */; };
 		FFB0286F1666D57400CED715 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB0285C1666D57400CED715 /* Cocoa.framework */; };
 		FFB028721666D57400CED715 /* IQNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB0285B1666D57400CED715 /* IQNetworking.framework */; };
 		FFB028831666D6F600CED715 /* IQTransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6E0AC16661A3900A8867C /* IQTransferManager.m */; };
@@ -120,7 +125,6 @@
 		FFB0288A1666D78400CED715 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB028891666D78400CED715 /* SystemConfiguration.framework */; };
 		FFB0288C1666D79400CED715 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB0288B1666D79400CED715 /* SystemConfiguration.framework */; };
 		FFB6E0711665613100A8867C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E0701665613100A8867C /* Foundation.framework */; };
-		FFB6E0801665613200A8867C /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E07F1665613200A8867C /* SenTestingKit.framework */; };
 		FFB6E0831665613200A8867C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E0701665613100A8867C /* Foundation.framework */; };
 		FFB6E0861665613200A8867C /* libIQNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E06D1665613100A8867C /* libIQNetworking.a */; };
 		FFB6E08C1665613200A8867C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFB6E08A1665613200A8867C /* InfoPlist.strings */; };
@@ -161,6 +165,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FF24FDB417F775D10006FC44 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FF24FDB717F779B40006FC44 /* IQNetworkSynchronizedFolderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQNetworkSynchronizedFolderTest.m; sourceTree = "<group>"; };
+		FF24FDB917F77A540006FC44 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FF25064A168CD6E300667FD9 /* IQHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQHTTPServer.h; sourceTree = "<group>"; };
 		FF25064B168CD6E300667FD9 /* IQHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQHTTPServer.m; sourceTree = "<group>"; };
 		FF250660168CDA6900667FD9 /* IQObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IQObjectFactory.h; path = IQSerialization.git/IQSerialization/IQObjectFactory.h; sourceTree = "<group>"; };
@@ -198,7 +205,6 @@
 		FF25069B168CDAB800667FD9 /* yajl_tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yajl_tree.c; path = IQSerialization.git/Contrib/yajl/yajl_tree.c; sourceTree = "<group>"; };
 		FF25069C168CDAB800667FD9 /* yajl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yajl.c; path = IQSerialization.git/Contrib/yajl/yajl.c; sourceTree = "<group>"; };
 		FF2506C6168CDE2200667FD9 /* IQNetworking-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "IQNetworking-Info.plist"; sourceTree = "<group>"; };
-		FF2506CF168CEA0000667FD9 /* IQHTTPServerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQHTTPServerTests.h; sourceTree = "<group>"; };
 		FF2506D0168CEA0000667FD9 /* IQHTTPServerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQHTTPServerTests.m; sourceTree = "<group>"; };
 		FF2506DB168CF67700667FD9 /* SimpleWebServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleWebServer; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF2506DD168CF67700667FD9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -210,7 +216,6 @@
 		FF2506F3168E453200667FD9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		FF2506F5168E459000667FD9 /* IQStreamingMediaCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQStreamingMediaCache.h; sourceTree = "<group>"; };
 		FF2506F6168E459000667FD9 /* IQStreamingMediaCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQStreamingMediaCache.m; sourceTree = "<group>"; };
-		FF2508771693B8A800667FD9 /* IQTransferManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTransferManagerTests.h; sourceTree = "<group>"; };
 		FF2508781693B8A800667FD9 /* IQTransferManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTransferManagerTests.m; sourceTree = "<group>"; };
 		FF7FB6E116AE6098008B6C60 /* IQProgressAgregator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQProgressAgregator.h; sourceTree = "<group>"; };
 		FF7FB6E216AE6098008B6C60 /* IQProgressAgregator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQProgressAgregator.m; sourceTree = "<group>"; };
@@ -231,7 +236,6 @@
 		FFB6E0811665613200A8867C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		FFB6E0891665613200A8867C /* IQNetworkingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IQNetworkingTests-Info.plist"; sourceTree = "<group>"; };
 		FFB6E08B1665613200A8867C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FFB6E08D1665613200A8867C /* IQMIMETests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQMIMETests.h; sourceTree = "<group>"; };
 		FFB6E08E1665613200A8867C /* IQMIMETests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQMIMETests.m; sourceTree = "<group>"; };
 		FFB6E098166571CB00A8867C /* IQReachableStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQReachableStatus.h; sourceTree = "<group>"; };
 		FFB6E099166571CB00A8867C /* IQReachableStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQReachableStatus.m; sourceTree = "<group>"; };
@@ -264,8 +268,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF24FDBA17F77A540006FC44 /* XCTest.framework in Frameworks */,
 				FFB0288A1666D78400CED715 /* SystemConfiguration.framework in Frameworks */,
-				FFB0286E1666D57400CED715 /* SenTestingKit.framework in Frameworks */,
 				FFB0286F1666D57400CED715 /* Cocoa.framework in Frameworks */,
 				FFB028721666D57400CED715 /* IQNetworking.framework in Frameworks */,
 			);
@@ -283,10 +287,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF24FDBB17F77A5D0006FC44 /* XCTest.framework in Frameworks */,
+				FF24FDB517F775D10006FC44 /* SystemConfiguration.framework in Frameworks */,
 				FF2506F4168E453200667FD9 /* CFNetwork.framework in Frameworks */,
 				FF2506F2168E41C400667FD9 /* UIKit.framework in Frameworks */,
 				FF2506F0168E417100667FD9 /* MobileCoreServices.framework in Frameworks */,
-				FFB6E0801665613200A8867C /* SenTestingKit.framework in Frameworks */,
 				FFB6E0831665613200A8867C /* Foundation.framework in Frameworks */,
 				FFB6E0861665613200A8867C /* libIQNetworking.a in Frameworks */,
 			);
@@ -395,6 +400,8 @@
 		FFB6E06F1665613100A8867C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF24FDB917F77A540006FC44 /* XCTest.framework */,
+				FF24FDB417F775D10006FC44 /* SystemConfiguration.framework */,
 				FFB6E0701665613100A8867C /* Foundation.framework */,
 				FFB6E07F1665613200A8867C /* SenTestingKit.framework */,
 				FFB6E0811665613200A8867C /* UIKit.framework */,
@@ -439,12 +446,10 @@
 		FFB6E0871665613200A8867C /* IQNetworkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				FFB6E08D1665613200A8867C /* IQMIMETests.h */,
 				FFB6E08E1665613200A8867C /* IQMIMETests.m */,
-				FF2506CF168CEA0000667FD9 /* IQHTTPServerTests.h */,
 				FF2506D0168CEA0000667FD9 /* IQHTTPServerTests.m */,
-				FF2508771693B8A800667FD9 /* IQTransferManagerTests.h */,
 				FF2508781693B8A800667FD9 /* IQTransferManagerTests.m */,
+				FF24FDB717F779B40006FC44 /* IQNetworkSynchronizedFolderTest.m */,
 				FFB6E0881665613200A8867C /* Supporting Files */,
 			);
 			path = IQNetworkingTests;
@@ -716,6 +721,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFB028831666D6F600CED715 /* IQTransferManager.m in Sources */,
+				FF24FDB617F776A70006FC44 /* IQProgressAgregator.m in Sources */,
 				FFB028841666D6F800CED715 /* IQNetworkSynchronizedFolder.m in Sources */,
 				FFB028851666D6FA00CED715 /* IQReachableStatus.m in Sources */,
 				FF25064E168CD6E300667FD9 /* IQHTTPServer.m in Sources */,
@@ -743,6 +749,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF24FDBC17F77B670006FC44 /* IQNetworkSynchronizedFolderTest.m in Sources */,
 				FFB028861666D6FF00CED715 /* IQMIMETests.m in Sources */,
 				FF2506D5168CEAF000667FD9 /* IQHTTPServerTests.m in Sources */,
 				FF25087A1693B8A800667FD9 /* IQTransferManagerTests.m in Sources */,
@@ -782,6 +789,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF24FDB817F779B40006FC44 /* IQNetworkSynchronizedFolderTest.m in Sources */,
 				FFB6E08F1665613200A8867C /* IQMIMETests.m in Sources */,
 				FF2506D6168CEAF200667FD9 /* IQHTTPServerTests.m in Sources */,
 				FF2508791693B8A800667FD9 /* IQTransferManagerTests.m in Sources */,
@@ -897,7 +905,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				INFOPLIST_FILE = "IQNetworkingTests/IQNetworkingTests-Info.plist";
@@ -914,7 +925,10 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				INFOPLIST_FILE = "IQNetworkingTests/IQNetworkingTests-Info.plist";
@@ -1004,8 +1018,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				INFOPLIST_FILE = "IQNetworkingTests/IQNetworkingTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1017,8 +1032,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				INFOPLIST_FILE = "IQNetworkingTests/IQNetworkingTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";

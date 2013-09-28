@@ -63,9 +63,12 @@ static IQTransferManager* globalTransferManager = nil;
         if(ext.length > 0) {
             ext = [@"." stringByAppendingString:ext];
         }
-        name = [NSString stringWithFormat:@"%@_%08x%@", fn, url.hash, ext];
+        name = [NSString stringWithFormat:@"%@_%08lx%@", fn, (unsigned long)url.hash, ext];
     }
+    NSString* localPath = [_localPath stringByAppendingPathComponent:name];
+    NSLog(@"Local Path: %@", localPath);
     IQNetworkSynchronizedFile* file = [[IQNetworkSynchronizedFile alloc] init];
+    return file;
 }
 @end
 
@@ -108,6 +111,7 @@ static IQTransferManager* globalTransferManager = nil;
             }
         }
     }
+    return nil;
 }
 
 - (NSString*)path

@@ -16,8 +16,12 @@
 //  limitations under the License.
 //
 
-#import "IQTransferManagerTests.h"
 #import "IQTransferManager.h"
+
+#import <XCTest/XCTest.h>
+
+@interface IQTransferManagerTests : XCTestCase
+@end
 
 @implementation IQTransferManagerTests
 
@@ -28,9 +32,9 @@
     IQTransferManager* tm = [IQTransferManager new];
     
     [tm downloadStringFromURL:url handler:^(NSString *string) {
-        STAssertTrue(string.length > 1024 && [string rangeOfString:@"<html"].length > 0, @"Unreasonable response from Google");
+        XCTAssertTrue(string.length > 1024 && [string rangeOfString:@"<html"].length > 0, @"Unreasonable response from Google");
     } errorHandler:^(NSError *error) {
-        STFail(@"HTTP request failed");
+        XCTFail(@"HTTP request failed");
     }];
     
     [tm waitUntilEmpty];

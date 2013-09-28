@@ -32,7 +32,9 @@
 
 - (void) addProgressible:(id<IQProgressible>)object;
 
+#if TARGET_OS_IPHONE
 @property (nonatomic) BOOL manageNetworkIndicator;
+#endif
 
 - (long long) totalBytes;
 - (long long) bytesDone;

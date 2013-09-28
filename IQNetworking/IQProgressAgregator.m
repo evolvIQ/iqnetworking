@@ -7,7 +7,9 @@
 //
 
 #import "IQProgressAgregator.h"
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#endif
 
 static IQProgressAgregator* globalAggregator = nil;
 @interface IQProgressAgregator () {
@@ -60,9 +62,11 @@ static IQProgressAgregator* globalAggregator = nil;
         [progressObjects removeObjectForKey:pref->object];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:kIQProgressAggregatorProgressChanged object:self];
+#if TARGET_OS_IPHONE
     if(_manageNetworkIndicator) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:self.working];
     }
+#endif
 }
 
 - (void) _receivedProgressUpdate:(NSNotification*)notification
