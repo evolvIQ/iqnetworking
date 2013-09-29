@@ -115,4 +115,54 @@
     server.started = NO;
 }
 
+- (void)testServeWithParam
+{
+    // Create a simple HTTP server that returns the URL parameter in the response
+    IQHTTPServer* server = [IQHTTPServer new];
+    [server addURLPattern:[NSRegularExpression regularExpressionWithPattern:@"/hello/([0-9]+)" options:0 error:nil] callback:^(IQHTTPServerRequest *request, NSInteger sequence) {
+        [request writeString:[NSString stringWithFormat:@"The answer to the ultimate question is %@", [request valueForUrlPatternGroup:1]]];
+        [request done];
+    }];
+    server.started = YES;
+    
+    XCTAssertTrue(server.started, @"Server failed to start");
+    
+    IQTransferManager* tm = [IQTransferManager new];
+    
+    // No parameter, expect 404
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://127.0.0.1:%d/hello", server.port]];
+    
+    [tm downloadStringFromURL:url handler:^(NSString *string) {
+        XCTFail(@"Expected 404 error");
+    } errorHandler:^(NSError *error) {
+        XCTAssertEqual(404, (int)error.code, @"Expected 404 error");
+    }];
+    
+    [tm waitUntilEmpty];
+    
+    // Not a number, expect 404
+    url = [NSURL URLWithString:[NSString stringWithFormat:@"http://127.0.0.1:%d/hello/A", server.port]];
+    
+    [tm downloadStringFromURL:url handler:^(NSString *string) {
+        XCTFail(@"Expected 404 error");
+    } errorHandler:^(NSError *error) {
+        XCTAssertEqual(404, (int)error.code, @"Expected 404 error");
+    }];
+    
+    [tm waitUntilEmpty];
+    
+    // Expect the number to be used in the repsonse
+    url = [NSURL URLWithString:[NSString stringWithFormat:@"http://127.0.0.1:%d/hello/42", server.port]];
+    
+    [tm downloadStringFromURL:url handler:^(NSString *string) {
+        XCTAssertEqualObjects(@"The answer to the ultimate question is 42", string, @"Expected the answer to be 42");
+    } errorHandler:^(NSError *error) {
+        XCTFail(@"Failed with error %@", error);
+    }];
+    
+    [tm waitUntilEmpty];
+    
+    server.started = NO;
+}
+
 @end

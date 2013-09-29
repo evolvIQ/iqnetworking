@@ -95,6 +95,12 @@ typedef void (^IQHTTPResponseReader)(IQHTTPServerRequest* request, NSMutableData
 @interface IQHTTPServerRequest : NSObject
 @property (nonatomic, readonly) IQHTTPServer* server;
 
+
+/**
+ The resource part of the URL sent for this request.
+ */
+@property (nonatomic, readonly) NSString* resource;
+
 /**
  Reads the request body asynchronously.
  @param atomic Enables buffering of the content body, and calls the reader
@@ -104,6 +110,8 @@ typedef void (^IQHTTPResponseReader)(IQHTTPServerRequest* request, NSMutableData
 @property (nonatomic, readonly) long long requestBodyLength;
 
 - (NSString*) valueForRequestHeaderField:(NSString*)field;
+
+- (NSString*) valueForUrlPatternGroup:(NSInteger)patternGroupIndex;
 
 /**
  Close connection immediately and cancel the request.

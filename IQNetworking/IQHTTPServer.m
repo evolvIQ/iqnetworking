@@ -70,6 +70,8 @@
     NSInputStream* writeStream;
     NSMutableData* writeBuffer;
     IQHTTPRequestCallback currentCallback;
+    NSTextCheckingResult* currentResult;
+    NSString* resourceSpecifier;
     NSInteger seq;
     BOOL isDone;
 }
@@ -107,7 +109,6 @@
 
 static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, const void *data, void *info)
 {
-    NSLog(@"ACCEPT");
     CFSocketNativeHandle peerSocket = *(CFSocketNativeHandle *)data;
     IQHTTPServer* server = (__bridge IQHTTPServer*)info;
     _IQHTTPServerConnection* connection = [[_IQHTTPServerConnection alloc] initWithSocket:peerSocket runLoop:server->actualRunLoop server:server];
@@ -431,11 +432,13 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
         [self done];
         return;
     }
+    self->resourceSpecifier = resourceSpecifier;
     for(_IQHTTPURLHandler* handler in self.server->urlPatterns) {
-        NSRange range = [handler.regexp rangeOfFirstMatchInString:resourceSpecifier options:NSMatchingAnchored range:sr];
-        if(range.location == 0 && range.length == resourceSpecifier.length) {
+        NSTextCheckingResult* result = [handler.regexp firstMatchInString:resourceSpecifier options:NSMatchingAnchored range:sr];
+        if(result && result.range.location == 0 && result.range.length == resourceSpecifier.length) {
             hasMatch = YES;
             self->currentCallback = handler.callback;
+            self->currentResult = result;
             break;
         }
     }
@@ -578,6 +581,20 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
 - (NSString*) valueForResponseHeaderField:(NSString*)field
 {
     return objc_retainedObject(CFHTTPMessageCopyHeaderFieldValue(responseHeaders, (__bridge CFStringRef)field));
+}
+
+- (NSString*) valueForUrlPatternGroup:(NSInteger)patternGroupIndex
+{
+    NSRange range = [currentResult rangeAtIndex:patternGroupIndex];
+    if(range.length == 0) {
+        return nil;
+    }
+    return [self->resourceSpecifier substringWithRange:range];
+}
+
+- (NSString*) resource
+{
+    return resourceSpecifier;
 }
 
 - (void) _readRequest
