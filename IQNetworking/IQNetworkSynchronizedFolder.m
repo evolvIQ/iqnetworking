@@ -219,7 +219,7 @@ static IQTransferManager* globalTransferManager = nil;
     return file;
 }
 
-- (void) openForReading:(IQSynchronizedFileOpener)openHandler errorHandler:(IQErrorHandler)errorHandler options:(IQSynchronizationOptions)options
+- (void) synchronize:(IQSynchronizedFileNameCallback)fileHandler errorHandler:(IQErrorHandler)errorHandler options:(IQSynchronizationOptions)options
 {
     NSString* path = self.path;
     BOOL wasDefault = NO;
@@ -233,20 +233,17 @@ static IQTransferManager* globalTransferManager = nil;
     }
     // Try to open the existing file if allowed
     if([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSFileHandle* handle;
+        NSString* localPath = nil;
         switch(options) {
             case IQSynchronizationUseCachedOrFail:
             case IQSynchronizationUseCachedIfExists:
-                // File exists, just open it since we don't care if its outdated
-                handle = [NSFileHandle fileHandleForReadingAtPath:path];
-                break;
-            default:
-                handle = nil;
+                // File exists, just use it since we don't care if its outdated
+                localPath = path;
                 break;
         }
-        if(handle) {
-            if(openHandler) {
-                openHandler(handle);
+        if(localPath) {
+            if(fileHandler) {
+                fileHandler(localPath);
             }
             return;
         }
@@ -268,7 +265,7 @@ static IQTransferManager* globalTransferManager = nil;
                 dispatch_async(q, ^{
                     NSLog(@"sync is now un-blocked");
                     [[NSNotificationCenter defaultCenter] removeObserver:observer];
-                    [self openForReading:openHandler errorHandler:errorHandler options:wasDefault?IQSynchronizationDefault:options];
+                    [self synchronize:fileHandler errorHandler:errorHandler options:wasDefault?IQSynchronizationDefault:options];
                 });
             }
         }];
@@ -287,10 +284,25 @@ static IQTransferManager* globalTransferManager = nil;
         }
         [self refresh:alwaysDownload completion:^{
             NSLog(@"I have now downloaded myself");
-            [self openForReading:openHandler errorHandler:errorHandler options:IQSynchronizationUseCachedOrFail];
+            [self synchronize:fileHandler errorHandler:errorHandler options:IQSynchronizationUseCachedOrFail];
         } errorHandler:errorHandler];
     }
     
+}
+- (void) openForReading:(IQSynchronizedFileOpener)openHandler errorHandler:(IQErrorHandler)errorHandler options:(IQSynchronizationOptions)options
+{
+    [self synchronize:^(NSString *path) {
+        NSFileHandle* handle = [NSFileHandle fileHandleForReadingAtPath:path];
+        if(handle == nil) {
+            if(errorHandler) {
+                errorHandler([NSError errorWithDomain:kIQNetworkSynchronizationErrorDomain code:kIQNetworkSynchronizationErrorUnableToOpen userInfo:[NSDictionary dictionaryWithObject:@"Failed to open cache file" forKey:NSLocalizedDescriptionKey]]);
+            }
+        } else {
+            if(openHandler) {
+                openHandler(handle);
+            }
+        }
+    } errorHandler:errorHandler options:options];
 }
 
 - (void) waitUntilSynchronized

@@ -24,10 +24,12 @@
 
 #define kIQNetworkSynchronizationErrorHandleAlreadyOpen -1001
 #define kIQNetworkSynchronizationErrorFileNotInCache -1002
+#define kIQNetworkSynchronizationErrorUnableToOpen -1003
 
 @class IQNetworkSynchronizedFile;
 typedef NSString* (^IQCacheFileNaming)(NSURL* url);
 typedef void (^IQSynchronizedFileOpener)(NSFileHandle* handle);
+typedef void (^IQSynchronizedFileNameCallback)(NSString* path);
 
 /**
  Manages a set of files synchronized against a server.
@@ -115,6 +117,15 @@ typedef enum {
 } IQSynchronizationOptions;
 
 @interface IQNetworkSynchronizedFile : NSObject
+
+/**
+ Synchronizes the file and returns the local path to the synchronized file.
+ */
+- (void) synchronize:(IQSynchronizedFileNameCallback)fileHandler errorHandler:(IQErrorHandler)errorHandler options:(IQSynchronizationOptions)options;
+
+/**
+ Synchronizes the file and opens a read handle to it.
+ */
 - (void) openForReading:(IQSynchronizedFileOpener)openHandler errorHandler:(IQErrorHandler)errorHandler options:(IQSynchronizationOptions)options;
 
 @property (nonatomic, readonly) NSString* path;
