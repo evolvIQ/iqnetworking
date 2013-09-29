@@ -335,6 +335,7 @@ static IQTransferManager* globalTransferManager = nil;
 - (void) refresh:(BOOL)alwaysDownload completion:(IQGenericCallback)completionHandler errorHandler:(IQErrorHandler)errorHandler
 {
     @synchronized(self) {
+        __block IQNetworkSynchronizedFolder* strongFolder = folder;
         [folder _ensureLocaldir];
         refreshCount ++;
         NSString* tempFile = [self.path stringByAppendingString:[NSString stringWithFormat:@".%d.download", refreshCount]];
@@ -364,6 +365,7 @@ static IQTransferManager* globalTransferManager = nil;
                         completionHandler();
                     }
                 }
+                strongFolder = nil;
             }
         } errorHandler:^(NSError* error) {
             IQNetworkSynchronizedFile* s = weakSelf;
@@ -381,6 +383,7 @@ static IQTransferManager* globalTransferManager = nil;
                     errorHandler(error);
                 }
             }
+            strongFolder = nil;
         }];
         if(etag && !alwaysDownload) {
             [item setValue:etag forRequestHeaderField:@"If-None-Match"];
