@@ -374,4 +374,46 @@
     
 }
 
+- (void)testUseCachedVersionIfServerIsUnavailable
+{
+    IQNetworkSynchronizedFolder* folder = [IQNetworkSynchronizedFolder folderWithName:@"test" inParent:testFolder];
+    
+    IQNetworkSynchronizedFile* file = [folder addFileWithURL:[self URLForResource:@"hello_world.txt"]];
+    
+    __block BOOL completed1 = NO, completed2 = NO;
+    
+    __weak IQNetworkSynchronizedFolderTest* weakSelf = self;
+    [file openForReading:^(NSFileHandle *handle) {
+        IQNetworkSynchronizedFolderTest* s = weakSelf;
+        NSString* string = [[NSString alloc] initWithData:[handle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+        XCTAssertEqualObjects(s->hello, string, @"Contents of synced file in op #1 is not correct");
+        completed1 = YES;
+    } errorHandler:^(NSError *error) {
+        XCTFail(@"Download #1 failed: %@", error);
+    } options:IQSynchronizationDefault];
+    
+    [file waitUntilSynchronized];
+    
+    // Stop server
+    server.started = NO;
+    
+    [file openForReading:^(NSFileHandle *handle) {
+        IQNetworkSynchronizedFolderTest* s = weakSelf;
+        NSString* string = [[NSString alloc] initWithData:[handle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+        XCTAssertEqualObjects(s->hello, string, @"Contents of synced file in op #2 is not correct");
+        completed2 = YES;
+    } errorHandler:^(NSError *error) {
+        XCTFail(@"Download #2 failed: %@", error);
+    } options:IQSynchronizationCheckModified];
+    
+    [file waitUntilSynchronized];
+    
+    XCTAssertEqual(1, serverRequests, @"Expected one request");
+    XCTAssertEqual(1, serverResponses, @"Expected one response");
+    
+    XCTAssertTrue(completed1, @"Completion handler for #1 never called");
+    XCTAssertTrue(completed2, @"Completion handler for #2 never called");
+    
+}
+
 @end

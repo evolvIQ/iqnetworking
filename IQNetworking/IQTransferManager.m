@@ -474,9 +474,13 @@ static NSMutableSet* activeTransferManagers = nil;
                 str = [NSString stringWithFormat:@"Error #%d", statusCode];
         }
         NSError* err = [NSError errorWithDomain:kIQTransferManagerErrorDomain code:statusCode userInfo:[NSDictionary dictionaryWithObject:str forKey:NSLocalizedDescriptionKey]];
-        errorHandler(err);
+        if(errorHandler) {
+            errorHandler(err);
+        }
     } else {
-        doneHandler();
+        if(doneHandler) {
+            doneHandler();
+        }
     }
 }
 

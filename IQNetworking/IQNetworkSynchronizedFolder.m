@@ -67,7 +67,11 @@ static IQTransferManager* globalTransferManager = nil;
 
 - (void)_loadState
 {
-    if([[NSFileManager defaultManager] fileExistsAtPath:self->_localPath isDirectory:YES]) {
+    BOOL isDir = NO;
+    if([[NSFileManager defaultManager] fileExistsAtPath:self->_localPath isDirectory:&isDir]) {
+        if(!isDir) {
+            NSLog(@"The parent folder exists as a file. Future requests will fail...");
+        }
         NSString* dictPath = [self->_localPath stringByAppendingPathComponent:@".syncstate"];
         NSArray* syncState = [NSArray arrayWithContentsOfFile:dictPath];
         if(syncState != nil) {
@@ -184,7 +188,6 @@ static IQTransferManager* globalTransferManager = nil;
     NSURL* url;
     NSString* name;
     NSString* etag;
-    NSString* tempFile;
     IQTransferItem* syncItem;
 }
 
@@ -285,7 +288,16 @@ static IQTransferManager* globalTransferManager = nil;
         [self refresh:alwaysDownload completion:^{
             NSLog(@"I have now downloaded myself");
             [self synchronize:fileHandler errorHandler:errorHandler options:IQSynchronizationUseCachedOrFail];
-        } errorHandler:errorHandler];
+        } errorHandler:^(NSError* error) {
+            if(options != IQSynchronizationUseCachedOrFail) {
+                // If cache sync failed (i.e. network or server not available), try to use cached version if it exists
+                [self synchronize:fileHandler errorHandler:errorHandler options:IQSynchronizationUseCachedOrFail];
+            } else {
+                if(errorHandler) {
+                    errorHandler(error);
+                }
+            }
+        }];
     }
     
 }
@@ -325,7 +337,7 @@ static IQTransferManager* globalTransferManager = nil;
     @synchronized(self) {
         [folder _ensureLocaldir];
         refreshCount ++;
-        tempFile = [self.path stringByAppendingString:[NSString stringWithFormat:@".%d.download", refreshCount]];
+        NSString* tempFile = [self.path stringByAppendingString:[NSString stringWithFormat:@".%d.download", refreshCount]];
         __weak IQNetworkSynchronizedFile* weakSelf = self;
         __block IQTransferItem* item = nil;
         item = [folder->transferManager downloadFromURL:url toPath:tempFile done:^{
@@ -338,7 +350,7 @@ static IQTransferManager* globalTransferManager = nil;
                     [[NSFileManager defaultManager] removeItemAtPath:s.path error:&error];
                 }
                 if(!error) {
-                    [[NSFileManager defaultManager] moveItemAtPath:s->tempFile toPath:s.path error:&error];
+                    [[NSFileManager defaultManager] moveItemAtPath:tempFile toPath:s.path error:&error];
                 }
                 if(error) {
                     if(errorHandler) {
