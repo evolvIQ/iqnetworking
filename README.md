@@ -1,5 +1,5 @@
-IQNetworking Framework for iOS and OS X
-=======================================
+IQNetworking Framework
+======================
 *Asynchronous networking for iOS and OS X made simple*
 
 
@@ -13,10 +13,30 @@ common networking tasks in your apps. The following features are included
 
 The library focuses on ease of use/integration and low resource use.
 
-The library is provided under an Apache 2.0 lincense and is free of charge even in commercial applications.
+The library is provided under an Apache 2.0 license and is free of charge even in commercial applications.
 
 How to use IQNetworking
 -----------------------
+
+**How to integrate** (Currently iOS only -- for OS X, open the project with XCode and build from there)
+The easiest way to integrate IQNetworking into your project is to build the library from source using the provided Makefile.
+
+    $ git clone --recursive git://github.com/evolvIQ/iqnetworking.git
+    $ cd iqnetworking
+    $ make
+    $ ls Products/*
+    Products/Debug:
+    IQNetworking.framework
+    
+    Products/Release:
+    IQNetworking.framework
+    $
+    
+Then drag the Debug or Release version of the framework to your app. The framework is a statically compiled universal binary
+that works both in the simulator and on devices.
+    
+**Important**: Do not omit the --recursive flag, as IQNetworking depends on the IQSerialization library.
+    
 
 **Example 1: Creating a web server**
 
