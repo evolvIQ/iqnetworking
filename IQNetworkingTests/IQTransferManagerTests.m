@@ -31,13 +31,40 @@
     NSURL* url = [NSURL URLWithString:@"http://www.google.com"];
     IQTransferManager* tm = [IQTransferManager new];
     
-    [tm downloadStringFromURL:url handler:^(NSString *string) {
+    IQTransferItem* item = [tm downloadStringFromURL:url handler:^(NSString *string) {
         XCTAssertTrue(string.length > 1024 && [string rangeOfString:@"<html"].length > 0, @"Unreasonable response from Google");
     } errorHandler:^(NSError *error) {
         XCTFail(@"HTTP request failed");
     }];
     
+    [item waitUntilDone];
+}
+
+- (void)testGetMultipleRequests
+{
+    // This will be the URL to our server root
+    NSURL* url = [NSURL URLWithString:@"http://www.google.com"];
+    IQTransferManager* tm = [IQTransferManager new];
+    
+    __block int counter = 0;
+    
+    [tm downloadStringFromURL:url handler:^(NSString *string) {
+        XCTAssertTrue(string.length > 1024 && [string rangeOfString:@"<html"].length > 0, @"Unreasonable response from Google");
+        counter ++;
+    } errorHandler:^(NSError *error) {
+        XCTFail(@"HTTP request failed");
+    }];
+    
+    [tm downloadStringFromURL:url handler:^(NSString *string) {
+        XCTAssertTrue(string.length > 1024 && [string rangeOfString:@"<html"].length > 0, @"Unreasonable response from Google");
+        counter ++;
+    } errorHandler:^(NSError *error) {
+        XCTFail(@"HTTP request failed");
+    }];
+    
     [tm waitUntilEmpty];
+    
+    XCTAssertEqual(2, counter, @"Expected 2 completed requests, but was %d", counter);
 }
 
 @end

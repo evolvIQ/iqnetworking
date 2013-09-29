@@ -69,6 +69,13 @@ static NSMutableSet* activeTransferManagers = nil;
     }
 }
 
+- (BOOL) isBusy
+{
+    @synchronized(self) {
+        return !(queue.count == 0 && progress.count == 0);
+    }
+}
+
 - (IQTransferItem*) postData:(NSData*)postData andDownloadProgressivelyFromURL:(NSURL*)url  handler:(IQDataHandler)progressiveHandler done:(IQGenericCallback)done errorHandler:(IQErrorHandler)errorHandler
 {
     IQTransferItem* item = [self downloadDataProgressivelyFromURL:url handler:progressiveHandler done:done errorHandler:errorHandler];
@@ -117,7 +124,9 @@ static NSMutableSet* activeTransferManagers = nil;
         }
         return YES;
     } done:^{
-        handler(data);
+        if(handler) {
+            handler(data);
+        }
     } errorHandler:errorHandler];
 }
 
@@ -134,7 +143,9 @@ static NSMutableSet* activeTransferManagers = nil;
         }
         return YES;
     } done:^{
-        handler(data);
+        if(handler) {
+            handler(data);
+        }
     } errorHandler:errorHandler];
 }
 
@@ -165,12 +176,12 @@ static NSMutableSet* activeTransferManagers = nil;
             return YES;
         }
         @catch (NSException *exception) {
-            errorHandler([NSError errorWithDomain:kIQTransferManagerErrorDomain code:kIQTransferCannotWriteFileHandle userInfo:[NSDictionary dictionaryWithObject:[exception description] forKey:NSLocalizedDescriptionKey]]);
+            if(errorHandler) {
+                errorHandler([NSError errorWithDomain:kIQTransferManagerErrorDomain code:kIQTransferCannotWriteFileHandle userInfo:[NSDictionary dictionaryWithObject:[exception description] forKey:NSLocalizedDescriptionKey]]);
+            }
             return NO;
         }
-    } done:^{
-        done();
-    } errorHandler:errorHandler];
+    } done:done errorHandler:errorHandler];
 }
 
 - (IQTransferItem*) downloadFromURL:(NSURL*)url toPath:(NSString*)path done:(IQGenericCallback)done errorHandler:(IQErrorHandler)errorHandler
@@ -179,11 +190,15 @@ static NSMutableSet* activeTransferManagers = nil;
     return [self downloadDataProgressivelyFromURL:url handler:^(NSData *result) {
         if(!file) {
             file = [NSFileHandle fileHandleForWritingAtPath:path];
-            if([[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil]) {
-                file = [NSFileHandle fileHandleForWritingAtPath:path];
+            if(!file) {
+                if([[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil]) {
+                    file = [NSFileHandle fileHandleForWritingAtPath:path];
+                }
             }
             if(!file) {
-                errorHandler([NSError errorWithDomain:kIQTransferManagerErrorDomain code:kIQTransferCannotOpenOutputFile userInfo:[NSDictionary dictionaryWithObject:@"Unable to open output file" forKey:NSLocalizedDescriptionKey]]);
+                if(errorHandler) {
+                    errorHandler([NSError errorWithDomain:kIQTransferManagerErrorDomain code:kIQTransferCannotOpenOutputFile userInfo:[NSDictionary dictionaryWithObject:@"Unable to open output file" forKey:NSLocalizedDescriptionKey]]);
+                }
                 return NO;
             }
         }
@@ -192,17 +207,19 @@ static NSMutableSet* activeTransferManagers = nil;
             return YES;
         }
         @catch (NSException *exception) {
-            errorHandler([NSError errorWithDomain:kIQTransferManagerErrorDomain code:kIQTransferCannotWriteFileHandle userInfo:[NSDictionary dictionaryWithObject:[exception description] forKey:NSLocalizedDescriptionKey]]);
+            if(errorHandler) {
+                errorHandler([NSError errorWithDomain:kIQTransferManagerErrorDomain code:kIQTransferCannotWriteFileHandle userInfo:[NSDictionary dictionaryWithObject:[exception description] forKey:NSLocalizedDescriptionKey]]);
+            }
             if(file) {
                 [file closeFile];
                 [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
             }
             return NO;
         }
-    } done:^{
-        done();
-    } errorHandler:^(NSError* err) {
-        errorHandler(err);
+    } done:done errorHandler:^(NSError* err) {
+        if(errorHandler) {
+            errorHandler(err);
+        }
         if(file) {
             [file closeFile];
             [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
@@ -220,7 +237,9 @@ static NSMutableSet* activeTransferManagers = nil;
             enc = mt.encoding;
             if(!enc) enc = NSISOLatin1StringEncoding;
         }
-        handler([[NSString alloc] initWithData:result encoding:enc]);
+        if(handler) {
+            handler([[NSString alloc] initWithData:result encoding:enc]);
+        }
     } errorHandler:errorHandler];
     return ret;
 }
@@ -231,9 +250,13 @@ static NSMutableSet* activeTransferManagers = nil;
         IQSerialization* ser = [IQSerialization new];
         NSDictionary* dict = [ser dictionaryFromData:result format:format];
         if(!dict) {
-            errorHandler(ser.error);
+            if(errorHandler) {
+                errorHandler(ser.error);
+            }
         } else {
-            handler(dict);
+            if(handler) {
+                handler(dict);
+            }
         }
     } errorHandler:errorHandler];
 }
@@ -243,15 +266,21 @@ static NSMutableSet* activeTransferManagers = nil;
     IQSerialization* ser = [IQSerialization new];
     NSData* postData = [ser serializeObject:object format:postFormat flags:IQSerializationFlagsDefault];
     if(!postData) {
-        errorHandler(ser.error);
+        if(errorHandler) {
+            errorHandler(ser.error);
+        }
         return nil;
     }
     IQTransferItem* item = [self postData:postData andDownloadDataFromURL:url handler:^(NSData *result) {        
         NSDictionary* dict = [ser dictionaryFromData:result format:responseFormat];
         if(!dict) {
-            errorHandler(ser.error);
+            if(errorHandler) {
+                errorHandler(ser.error);
+            }
         } else {
-            handler(dict);
+            if(handler) {
+                handler(dict);
+            }
         }
     } errorHandler:errorHandler];
     IQMIMEType* type = [IQMIMEType MIMETypeForSerializationFormat:postFormat];
@@ -303,10 +332,10 @@ static NSMutableSet* activeTransferManagers = nil;
     @synchronized(self) {
         [progress removeObject:item];
         [self _checkStart];
-        [IQProgressAgregator progressChangedForObject:item];
         if(progress.count == 0 && queue.count == 0 && doneHandler) {
             doneHandler();
         }
+        [IQProgressAgregator progressChangedForObject:item];
     }
 }
 
@@ -363,6 +392,16 @@ static NSMutableSet* activeTransferManagers = nil;
         });
     } else {
         [NSURLConnection connectionWithRequest:request delegate:self];
+    }
+}
+
+- (void) waitUntilDone
+{
+    while(true) {
+        @synchronized(self) {
+            if(done) return;
+        }
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
 }
 

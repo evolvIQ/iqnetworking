@@ -45,6 +45,15 @@ typedef void (^IQDictionaryHandler)(NSDictionary* dictionary);
 @property (nonatomic, retain) NSData* requestBody;
 @property (nonatomic, retain) NSInputStream* requestBodyStream;
 @property (nonatomic, retain) NSString* requestMethod;
+
+/**
+ Blocks execution until this item transfer has finished.
+ 
+ Avoid using this in a production application (use the handler arguments instead).
+ Blocking a thread wastes resources. This method is primarily intended to support unit testing.
+ In addition, the implementation of this method is very inefficient.
+ */
+- (void) waitUntilDone;
 @end
 
 @interface IQTransferManager : NSObject
@@ -111,7 +120,16 @@ typedef void (^IQDictionaryHandler)(NSDictionary* dictionary);
 @property (nonatomic) NSTimeInterval timeoutInterval;
 
 /**
+ YES if the transfer manager is currently processing network request(s).
+ */
+@property (atomic, readonly) BOOL isBusy;
+
+/**
  Blocks execution until all ongoing transfers are finished.
+ 
+ Avoid using this in a production application (see the doneHandler property instead).
+ Blocking a thread wastes resources. This method is primarily intended to support unit testing.
+ In addition, the implementation of this method is very inefficient.
  */
 - (void) waitUntilEmpty;
 @end

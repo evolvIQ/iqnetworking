@@ -25,7 +25,6 @@
 		FF24FDB617F776A70006FC44 /* IQProgressAgregator.m in Sources */ = {isa = PBXBuildFile; fileRef = FF7FB6E216AE6098008B6C60 /* IQProgressAgregator.m */; };
 		FF24FDB817F779B40006FC44 /* IQNetworkSynchronizedFolderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF24FDB717F779B40006FC44 /* IQNetworkSynchronizedFolderTest.m */; };
 		FF24FDBA17F77A540006FC44 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF24FDB917F77A540006FC44 /* XCTest.framework */; };
-		FF24FDBB17F77A5D0006FC44 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF24FDB917F77A540006FC44 /* XCTest.framework */; };
 		FF24FDBC17F77B670006FC44 /* IQNetworkSynchronizedFolderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF24FDB717F779B40006FC44 /* IQNetworkSynchronizedFolderTest.m */; };
 		FF25064C168CD6E300667FD9 /* IQHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = FF25064A168CD6E300667FD9 /* IQHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF25064D168CD6E300667FD9 /* IQHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF25064B168CD6E300667FD9 /* IQHTTPServer.m */; };
@@ -224,14 +223,14 @@
 		FFB0285F1666D57400CED715 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		FFB028601666D57400CED715 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FFB028611666D57400CED715 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FFB0286D1666D57400CED715 /* Tests - OSX.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests - OSX.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFB0286D1666D57400CED715 /* Tests - OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests - OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB028871666D76200CED715 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		FFB028891666D78400CED715 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		FFB0288B1666D79400CED715 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = ../../../../../../System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
 		FFB6E06D1665613100A8867C /* libIQNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIQNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB6E0701665613100A8867C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FFB6E0751665613100A8867C /* IQNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQNetworking.h; sourceTree = "<group>"; };
-		FFB6E07E1665613200A8867C /* Tests - iOS.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests - iOS.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFB6E07E1665613200A8867C /* Tests - iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests - iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB6E07F1665613200A8867C /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		FFB6E0811665613200A8867C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		FFB6E0891665613200A8867C /* IQNetworkingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IQNetworkingTests-Info.plist"; sourceTree = "<group>"; };
@@ -287,7 +286,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF24FDBB17F77A5D0006FC44 /* XCTest.framework in Frameworks */,
 				FF24FDB517F775D10006FC44 /* SystemConfiguration.framework in Frameworks */,
 				FF2506F4168E453200667FD9 /* CFNetwork.framework in Frameworks */,
 				FF2506F2168E41C400667FD9 /* UIKit.framework in Frameworks */,
@@ -389,9 +387,9 @@
 			isa = PBXGroup;
 			children = (
 				FFB6E06D1665613100A8867C /* libIQNetworking.a */,
-				FFB6E07E1665613200A8867C /* Tests - iOS.octest */,
+				FFB6E07E1665613200A8867C /* Tests - iOS.xctest */,
 				FFB0285B1666D57400CED715 /* IQNetworking.framework */,
-				FFB0286D1666D57400CED715 /* Tests - OSX.octest */,
+				FFB0286D1666D57400CED715 /* Tests - OSX.xctest */,
 				FF2506DB168CF67700667FD9 /* SimpleWebServer */,
 			);
 			name = Products;
@@ -576,7 +574,7 @@
 			);
 			name = "Tests - OSX";
 			productName = "IQNetworking - OSXTests";
-			productReference = FFB0286D1666D57400CED715 /* Tests - OSX.octest */;
+			productReference = FFB0286D1666D57400CED715 /* Tests - OSX.xctest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		FFB6E06C1665613100A8867C /* IQNetworking - iOS */ = {
@@ -612,7 +610,7 @@
 			);
 			name = "Tests - iOS";
 			productName = IQNetworkingTests;
-			productReference = FFB6E07E1665613200A8867C /* Tests - iOS.octest */;
+			productReference = FFB6E07E1665613200A8867C /* Tests - iOS.xctest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -621,7 +619,7 @@
 		FFB6E0641665613100A8867C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = EvolvIQ;
 			};
 			buildConfigurationList = FFB6E0671665613100A8867C /* Build configuration list for PBXProject "IQNetworking" */;
@@ -840,7 +838,6 @@
 		FF2506E5168CF67700667FD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -852,7 +849,6 @@
 		FF2506E6168CF67700667FD9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -865,7 +861,6 @@
 		FFB0287D1666D57400CED715 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -884,7 +879,6 @@
 		FFB0287E1666D57400CED715 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -903,7 +897,6 @@
 		FFB028801666D57400CED715 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
@@ -915,14 +908,13 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
 		FFB028811666D57400CED715 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -935,7 +927,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -1024,7 +1016,7 @@
 				);
 				INFOPLIST_FILE = "IQNetworkingTests/IQNetworkingTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
@@ -1038,7 +1030,7 @@
 				);
 				INFOPLIST_FILE = "IQNetworkingTests/IQNetworkingTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
