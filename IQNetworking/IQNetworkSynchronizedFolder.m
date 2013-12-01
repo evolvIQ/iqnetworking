@@ -243,6 +243,8 @@ static IQTransferManager* globalTransferManager = nil;
                 // File exists, just use it since we don't care if its outdated
                 localPath = path;
                 break;
+            default:
+                break;
         }
         if(localPath) {
             if(fileHandler) {
@@ -373,8 +375,10 @@ static IQTransferManager* globalTransferManager = nil;
                 s->syncItem = nil;
             }
             if([error.domain isEqualToString:kIQTransferManagerErrorDomain] && error.code == 304) {
-                s->_lastChecked = [NSDate date];
-                [s->folder _saveState];
+                if(s) {
+                    s->_lastChecked = [NSDate date];
+                    [s->folder _saveState];
+                }
                 if(completionHandler) {
                     completionHandler();
                 }

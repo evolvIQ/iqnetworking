@@ -420,22 +420,22 @@ static void ListenSocketCallback(CFSocketRef s, CFSocketCallBackType type, CFDat
         return;
     }
     NSURL* url = CFBridgingRelease(CFHTTPMessageCopyRequestURL(msg));
-    NSString* resourceSpecifier = url.resourceSpecifier;
-    NSRange sr = NSMakeRange(0, resourceSpecifier.length);
+    NSString* resourceSpec = url.resourceSpecifier;
+    NSRange sr = NSMakeRange(0, resourceSpec.length);
     
     self->currentCallback = nil;
     
     BOOL hasMatch = NO;
-    if(!resourceSpecifier) {
+    if(!resourceSpec) {
         NSLog(@"Bad request");
         self.statusCode = 400;
         [self done];
         return;
     }
-    self->resourceSpecifier = resourceSpecifier;
+    self->resourceSpecifier = resourceSpec;
     for(_IQHTTPURLHandler* handler in self.server->urlPatterns) {
-        NSTextCheckingResult* result = [handler.regexp firstMatchInString:resourceSpecifier options:NSMatchingAnchored range:sr];
-        if(result && result.range.location == 0 && result.range.length == resourceSpecifier.length) {
+        NSTextCheckingResult* result = [handler.regexp firstMatchInString:resourceSpec options:NSMatchingAnchored range:sr];
+        if(result && result.range.location == 0 && result.range.length == resourceSpec.length) {
             hasMatch = YES;
             self->currentCallback = handler.callback;
             self->currentResult = result;

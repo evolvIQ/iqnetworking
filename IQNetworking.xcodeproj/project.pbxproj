@@ -132,6 +132,7 @@
 		FFB6E0A71666123500A8867C /* IQNetworkSynchronizedFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6E0A61666123500A8867C /* IQNetworkSynchronizedFolder.m */; };
 		FFB6E0AD16661A3900A8867C /* IQTransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6E0AC16661A3900A8867C /* IQTransferManager.m */; };
 		FFBAC78516E5639800D69BCF /* IQProgressAgregator.h in Headers */ = {isa = PBXBuildFile; fileRef = FF7FB6E116AE6098008B6C60 /* IQProgressAgregator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFFE9B1C184BEE2E007BACB7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF24FDB917F77A540006FC44 /* XCTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,6 +287,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFFE9B1C184BEE2E007BACB7 /* XCTest.framework in Frameworks */,
 				FF24FDB517F775D10006FC44 /* SystemConfiguration.framework in Frameworks */,
 				FF2506F4168E453200667FD9 /* CFNetwork.framework in Frameworks */,
 				FF2506F2168E41C400667FD9 /* UIKit.framework in Frameworks */,
@@ -1010,8 +1012,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
-					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				INFOPLIST_FILE = "IQNetworkingTests/IQNetworkingTests-Info.plist";
@@ -1024,8 +1026,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
-					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
-					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				INFOPLIST_FILE = "IQNetworkingTests/IQNetworkingTests-Info.plist";
