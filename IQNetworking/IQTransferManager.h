@@ -17,7 +17,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IQSerialization.h"
+#import <IQSerialization/IQSerialization.h>
 #import "IQProgressAgregator.h"
 #import "IQMIMEType.h"
 

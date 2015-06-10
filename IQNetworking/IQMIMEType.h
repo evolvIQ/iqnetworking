@@ -17,7 +17,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IQSerialization.h"
+#import <IQSerialization/IQSerialization.h>
 
 @interface IQMIMEType : NSObject <NSCopying, NSMutableCopying>
 + (id) MIMETypeWithMIMEType:(IQMIMEType*)other;

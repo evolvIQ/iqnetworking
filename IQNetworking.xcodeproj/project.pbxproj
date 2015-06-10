@@ -29,62 +29,6 @@
 		FF25064C168CD6E300667FD9 /* IQHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = FF25064A168CD6E300667FD9 /* IQHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF25064D168CD6E300667FD9 /* IQHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF25064B168CD6E300667FD9 /* IQHTTPServer.m */; };
 		FF25064E168CD6E300667FD9 /* IQHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FF25064B168CD6E300667FD9 /* IQHTTPServer.m */; };
-		FF25066E168CDA6900667FD9 /* IQObjectFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250660168CDA6900667FD9 /* IQObjectFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF25066F168CDA6900667FD9 /* IQObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FF250661168CDA6900667FD9 /* IQObjectFactory.m */; };
-		FF250670168CDA6900667FD9 /* IQObjectFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = FF250661168CDA6900667FD9 /* IQObjectFactory.m */; };
-		FF250671168CDA6900667FD9 /* IQSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250662168CDA6900667FD9 /* IQSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF250672168CDA6900667FD9 /* IQSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FF250663168CDA6900667FD9 /* IQSerialization.m */; };
-		FF250673168CDA6900667FD9 /* IQSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FF250663168CDA6900667FD9 /* IQSerialization.m */; };
-		FF250674168CDA6900667FD9 /* IQSerialization+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250664168CDA6900667FD9 /* IQSerialization+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF250675168CDA6900667FD9 /* IQSerialization+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF250665168CDA6900667FD9 /* IQSerialization+JSON.m */; };
-		FF250676168CDA6900667FD9 /* IQSerialization+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = FF250665168CDA6900667FD9 /* IQSerialization+JSON.m */; };
-		FF250677168CDA6900667FD9 /* IQSerialization+SimpleXML.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250666168CDA6900667FD9 /* IQSerialization+SimpleXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF250678168CDA6900667FD9 /* IQSerialization+SimpleXML.m in Sources */ = {isa = PBXBuildFile; fileRef = FF250667168CDA6900667FD9 /* IQSerialization+SimpleXML.m */; };
-		FF250679168CDA6900667FD9 /* IQSerialization+SimpleXML.m in Sources */ = {isa = PBXBuildFile; fileRef = FF250667168CDA6900667FD9 /* IQSerialization+SimpleXML.m */; };
-		FF25067A168CDA6900667FD9 /* IQSerialization+XMLRPC.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250668168CDA6900667FD9 /* IQSerialization+XMLRPC.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF25067B168CDA6900667FD9 /* IQSerialization+XMLRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF250669168CDA6900667FD9 /* IQSerialization+XMLRPC.m */; };
-		FF25067C168CDA6900667FD9 /* IQSerialization+XMLRPC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF250669168CDA6900667FD9 /* IQSerialization+XMLRPC.m */; };
-		FF25067D168CDA6900667FD9 /* IQXMLWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = FF25066A168CDA6900667FD9 /* IQXMLWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF25067E168CDA6900667FD9 /* IQXMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF25066B168CDA6900667FD9 /* IQXMLWriter.m */; };
-		FF25067F168CDA6900667FD9 /* IQXMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FF25066B168CDA6900667FD9 /* IQXMLWriter.m */; };
-		FF250680168CDA6900667FD9 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = FF25066C168CDA6900667FD9 /* NSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF250681168CDA6900667FD9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = FF25066D168CDA6900667FD9 /* NSData+Base64.m */; };
-		FF250682168CDA6900667FD9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = FF25066D168CDA6900667FD9 /* NSData+Base64.m */; };
-		FF250689168CDA9A00667FD9 /* yajl_common.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250684168CDA9A00667FD9 /* yajl_common.h */; };
-		FF25068A168CDA9A00667FD9 /* yajl_gen.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250685168CDA9A00667FD9 /* yajl_gen.h */; };
-		FF25068B168CDA9A00667FD9 /* yajl_parse.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250686168CDA9A00667FD9 /* yajl_parse.h */; };
-		FF25068C168CDA9A00667FD9 /* yajl_tree.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250687168CDA9A00667FD9 /* yajl_tree.h */; };
-		FF25068D168CDA9A00667FD9 /* yajl_version.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250688168CDA9A00667FD9 /* yajl_version.h */; };
-		FF25069D168CDAB800667FD9 /* yajl_alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = FF25068E168CDAB800667FD9 /* yajl_alloc.c */; };
-		FF25069E168CDAB800667FD9 /* yajl_alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = FF25068E168CDAB800667FD9 /* yajl_alloc.c */; };
-		FF25069F168CDAB800667FD9 /* yajl_alloc.h in Headers */ = {isa = PBXBuildFile; fileRef = FF25068F168CDAB800667FD9 /* yajl_alloc.h */; };
-		FF2506A0168CDAB800667FD9 /* yajl_buf.c in Sources */ = {isa = PBXBuildFile; fileRef = FF250690168CDAB800667FD9 /* yajl_buf.c */; };
-		FF2506A1168CDAB800667FD9 /* yajl_buf.c in Sources */ = {isa = PBXBuildFile; fileRef = FF250690168CDAB800667FD9 /* yajl_buf.c */; };
-		FF2506A2168CDAB800667FD9 /* yajl_buf.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250691168CDAB800667FD9 /* yajl_buf.h */; };
-		FF2506A3168CDAB800667FD9 /* yajl_bytestack.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250692168CDAB800667FD9 /* yajl_bytestack.h */; };
-		FF2506A4168CDAB800667FD9 /* yajl_common.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250693168CDAB800667FD9 /* yajl_common.h */; };
-		FF2506A5168CDAB800667FD9 /* yajl_encode.c in Sources */ = {isa = PBXBuildFile; fileRef = FF250694168CDAB800667FD9 /* yajl_encode.c */; };
-		FF2506A6168CDAB800667FD9 /* yajl_encode.c in Sources */ = {isa = PBXBuildFile; fileRef = FF250694168CDAB800667FD9 /* yajl_encode.c */; };
-		FF2506A7168CDAB800667FD9 /* yajl_encode.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250695168CDAB800667FD9 /* yajl_encode.h */; };
-		FF2506A8168CDAB800667FD9 /* yajl_gen.c in Sources */ = {isa = PBXBuildFile; fileRef = FF250696168CDAB800667FD9 /* yajl_gen.c */; };
-		FF2506A9168CDAB800667FD9 /* yajl_gen.c in Sources */ = {isa = PBXBuildFile; fileRef = FF250696168CDAB800667FD9 /* yajl_gen.c */; };
-		FF2506AA168CDAB800667FD9 /* yajl_lex.c in Sources */ = {isa = PBXBuildFile; fileRef = FF250697168CDAB800667FD9 /* yajl_lex.c */; };
-		FF2506AB168CDAB800667FD9 /* yajl_lex.c in Sources */ = {isa = PBXBuildFile; fileRef = FF250697168CDAB800667FD9 /* yajl_lex.c */; };
-		FF2506AC168CDAB800667FD9 /* yajl_lex.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250698168CDAB800667FD9 /* yajl_lex.h */; };
-		FF2506AD168CDAB800667FD9 /* yajl_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = FF250699168CDAB800667FD9 /* yajl_parser.c */; };
-		FF2506AE168CDAB800667FD9 /* yajl_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = FF250699168CDAB800667FD9 /* yajl_parser.c */; };
-		FF2506AF168CDAB800667FD9 /* yajl_parser.h in Headers */ = {isa = PBXBuildFile; fileRef = FF25069A168CDAB800667FD9 /* yajl_parser.h */; };
-		FF2506B0168CDAB800667FD9 /* yajl_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = FF25069B168CDAB800667FD9 /* yajl_tree.c */; };
-		FF2506B1168CDAB800667FD9 /* yajl_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = FF25069B168CDAB800667FD9 /* yajl_tree.c */; };
-		FF2506B2168CDAB800667FD9 /* yajl.c in Sources */ = {isa = PBXBuildFile; fileRef = FF25069C168CDAB800667FD9 /* yajl.c */; };
-		FF2506B3168CDAB800667FD9 /* yajl.c in Sources */ = {isa = PBXBuildFile; fileRef = FF25069C168CDAB800667FD9 /* yajl.c */; };
-		FF2506BA168CDCB400667FD9 /* IQSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250662168CDA6900667FD9 /* IQSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF2506BB168CDCB600667FD9 /* IQObjectFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250660168CDA6900667FD9 /* IQObjectFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF2506BC168CDCB700667FD9 /* IQSerialization+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250664168CDA6900667FD9 /* IQSerialization+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF2506BD168CDCB900667FD9 /* IQSerialization+SimpleXML.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250666168CDA6900667FD9 /* IQSerialization+SimpleXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF2506BE168CDCBC00667FD9 /* IQSerialization+XMLRPC.h in Headers */ = {isa = PBXBuildFile; fileRef = FF250668168CDA6900667FD9 /* IQSerialization+XMLRPC.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF2506BF168CDCBD00667FD9 /* IQXMLWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = FF25066A168CDA6900667FD9 /* IQXMLWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF2506C0168CDCC100667FD9 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = FF25066C168CDA6900667FD9 /* NSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF2506C1168CDCC400667FD9 /* IQNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB6E0751665613100A8867C /* IQNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF2506C2168CDCC600667FD9 /* IQTransferManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB6E0AB16661A3900A8867C /* IQTransferManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FF2506C3168CDCC900667FD9 /* IQNetworkSynchronizedFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB6E0A51666123500A8867C /* IQNetworkSynchronizedFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -123,6 +67,8 @@
 		FFB028861666D6FF00CED715 /* IQMIMETests.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB6E08E1665613200A8867C /* IQMIMETests.m */; };
 		FFB0288A1666D78400CED715 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB028891666D78400CED715 /* SystemConfiguration.framework */; };
 		FFB0288C1666D79400CED715 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB0288B1666D79400CED715 /* SystemConfiguration.framework */; };
+		FFB188AD1B28358D00A63B60 /* libIQSerialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB1889F1B28347700A63B60 /* libIQSerialization.a */; };
+		FFB188D01B283BBE00A63B60 /* IQSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB188A31B28347700A63B60 /* IQSerialization.framework */; };
 		FFB6E0711665613100A8867C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E0701665613100A8867C /* Foundation.framework */; };
 		FFB6E0831665613200A8867C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E0701665613100A8867C /* Foundation.framework */; };
 		FFB6E0861665613200A8867C /* libIQNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E06D1665613100A8867C /* libIQNetworking.a */; };
@@ -142,6 +88,48 @@
 			proxyType = 1;
 			remoteGlobalIDString = FFB0285A1666D57400CED715;
 			remoteInfo = "IQNetworking - OSX";
+		};
+		FFB1889E1B28347700A63B60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFB188961B28347600A63B60 /* IQSerialization.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FF9D9E571639D803002A9272;
+			remoteInfo = "IQSerialization - iOS";
+		};
+		FFB188A01B28347700A63B60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFB188961B28347600A63B60 /* IQSerialization.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FF9D9E681639D803002A9272;
+			remoteInfo = "Tests - iOS";
+		};
+		FFB188A21B28347700A63B60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFB188961B28347600A63B60 /* IQSerialization.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FFB028921666DA5300CED715;
+			remoteInfo = "IQSerialization - OSX";
+		};
+		FFB188A41B28347700A63B60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFB188961B28347600A63B60 /* IQSerialization.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FF9D9F35163F1A3D002A9272;
+			remoteInfo = "Tests - OSX";
+		};
+		FFB188AE1B28359500A63B60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFB188961B28347600A63B60 /* IQSerialization.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FF9D9E561639D803002A9272;
+			remoteInfo = "IQSerialization - iOS";
+		};
+		FFB188CC1B283B8100A63B60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFB188961B28347600A63B60 /* IQSerialization.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FFB028911666DA5300CED715;
+			remoteInfo = "IQSerialization - OSX";
 		};
 		FFB6E0841665613200A8867C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -170,40 +158,6 @@
 		FF24FDB917F77A540006FC44 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FF25064A168CD6E300667FD9 /* IQHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQHTTPServer.h; sourceTree = "<group>"; };
 		FF25064B168CD6E300667FD9 /* IQHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQHTTPServer.m; sourceTree = "<group>"; };
-		FF250660168CDA6900667FD9 /* IQObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IQObjectFactory.h; path = IQSerialization.git/IQSerialization/IQObjectFactory.h; sourceTree = "<group>"; };
-		FF250661168CDA6900667FD9 /* IQObjectFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IQObjectFactory.m; path = IQSerialization.git/IQSerialization/IQObjectFactory.m; sourceTree = "<group>"; };
-		FF250662168CDA6900667FD9 /* IQSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IQSerialization.h; path = IQSerialization.git/IQSerialization/IQSerialization.h; sourceTree = "<group>"; };
-		FF250663168CDA6900667FD9 /* IQSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IQSerialization.m; path = IQSerialization.git/IQSerialization/IQSerialization.m; sourceTree = "<group>"; };
-		FF250664168CDA6900667FD9 /* IQSerialization+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IQSerialization+JSON.h"; path = "IQSerialization.git/IQSerialization/IQSerialization+JSON.h"; sourceTree = "<group>"; };
-		FF250665168CDA6900667FD9 /* IQSerialization+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IQSerialization+JSON.m"; path = "IQSerialization.git/IQSerialization/IQSerialization+JSON.m"; sourceTree = "<group>"; };
-		FF250666168CDA6900667FD9 /* IQSerialization+SimpleXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IQSerialization+SimpleXML.h"; path = "IQSerialization.git/IQSerialization/IQSerialization+SimpleXML.h"; sourceTree = "<group>"; };
-		FF250667168CDA6900667FD9 /* IQSerialization+SimpleXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IQSerialization+SimpleXML.m"; path = "IQSerialization.git/IQSerialization/IQSerialization+SimpleXML.m"; sourceTree = "<group>"; };
-		FF250668168CDA6900667FD9 /* IQSerialization+XMLRPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IQSerialization+XMLRPC.h"; path = "IQSerialization.git/IQSerialization/IQSerialization+XMLRPC.h"; sourceTree = "<group>"; };
-		FF250669168CDA6900667FD9 /* IQSerialization+XMLRPC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "IQSerialization+XMLRPC.m"; path = "IQSerialization.git/IQSerialization/IQSerialization+XMLRPC.m"; sourceTree = "<group>"; };
-		FF25066A168CDA6900667FD9 /* IQXMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IQXMLWriter.h; path = IQSerialization.git/IQSerialization/IQXMLWriter.h; sourceTree = "<group>"; };
-		FF25066B168CDA6900667FD9 /* IQXMLWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IQXMLWriter.m; path = IQSerialization.git/IQSerialization/IQXMLWriter.m; sourceTree = "<group>"; };
-		FF25066C168CDA6900667FD9 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "IQSerialization.git/IQSerialization/NSData+Base64.h"; sourceTree = "<group>"; };
-		FF25066D168CDA6900667FD9 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "IQSerialization.git/IQSerialization/NSData+Base64.m"; sourceTree = "<group>"; };
-		FF250684168CDA9A00667FD9 /* yajl_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_common.h; path = IQSerialization.git/Contrib/yajl/api/yajl_common.h; sourceTree = "<group>"; };
-		FF250685168CDA9A00667FD9 /* yajl_gen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_gen.h; path = IQSerialization.git/Contrib/yajl/api/yajl_gen.h; sourceTree = "<group>"; };
-		FF250686168CDA9A00667FD9 /* yajl_parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_parse.h; path = IQSerialization.git/Contrib/yajl/api/yajl_parse.h; sourceTree = "<group>"; };
-		FF250687168CDA9A00667FD9 /* yajl_tree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_tree.h; path = IQSerialization.git/Contrib/yajl/api/yajl_tree.h; sourceTree = "<group>"; };
-		FF250688168CDA9A00667FD9 /* yajl_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_version.h; path = IQSerialization.git/Contrib/yajl/api/yajl_version.h; sourceTree = "<group>"; };
-		FF25068E168CDAB800667FD9 /* yajl_alloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yajl_alloc.c; path = IQSerialization.git/Contrib/yajl/yajl_alloc.c; sourceTree = "<group>"; };
-		FF25068F168CDAB800667FD9 /* yajl_alloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_alloc.h; path = IQSerialization.git/Contrib/yajl/yajl_alloc.h; sourceTree = "<group>"; };
-		FF250690168CDAB800667FD9 /* yajl_buf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yajl_buf.c; path = IQSerialization.git/Contrib/yajl/yajl_buf.c; sourceTree = "<group>"; };
-		FF250691168CDAB800667FD9 /* yajl_buf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_buf.h; path = IQSerialization.git/Contrib/yajl/yajl_buf.h; sourceTree = "<group>"; };
-		FF250692168CDAB800667FD9 /* yajl_bytestack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_bytestack.h; path = IQSerialization.git/Contrib/yajl/yajl_bytestack.h; sourceTree = "<group>"; };
-		FF250693168CDAB800667FD9 /* yajl_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_common.h; path = IQSerialization.git/Contrib/yajl/yajl_common.h; sourceTree = "<group>"; };
-		FF250694168CDAB800667FD9 /* yajl_encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yajl_encode.c; path = IQSerialization.git/Contrib/yajl/yajl_encode.c; sourceTree = "<group>"; };
-		FF250695168CDAB800667FD9 /* yajl_encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_encode.h; path = IQSerialization.git/Contrib/yajl/yajl_encode.h; sourceTree = "<group>"; };
-		FF250696168CDAB800667FD9 /* yajl_gen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yajl_gen.c; path = IQSerialization.git/Contrib/yajl/yajl_gen.c; sourceTree = "<group>"; };
-		FF250697168CDAB800667FD9 /* yajl_lex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yajl_lex.c; path = IQSerialization.git/Contrib/yajl/yajl_lex.c; sourceTree = "<group>"; };
-		FF250698168CDAB800667FD9 /* yajl_lex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_lex.h; path = IQSerialization.git/Contrib/yajl/yajl_lex.h; sourceTree = "<group>"; };
-		FF250699168CDAB800667FD9 /* yajl_parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yajl_parser.c; path = IQSerialization.git/Contrib/yajl/yajl_parser.c; sourceTree = "<group>"; };
-		FF25069A168CDAB800667FD9 /* yajl_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = yajl_parser.h; path = IQSerialization.git/Contrib/yajl/yajl_parser.h; sourceTree = "<group>"; };
-		FF25069B168CDAB800667FD9 /* yajl_tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yajl_tree.c; path = IQSerialization.git/Contrib/yajl/yajl_tree.c; sourceTree = "<group>"; };
-		FF25069C168CDAB800667FD9 /* yajl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yajl.c; path = IQSerialization.git/Contrib/yajl/yajl.c; sourceTree = "<group>"; };
 		FF2506C6168CDE2200667FD9 /* IQNetworking-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "IQNetworking-Info.plist"; sourceTree = "<group>"; };
 		FF2506D0168CEA0000667FD9 /* IQHTTPServerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQHTTPServerTests.m; sourceTree = "<group>"; };
 		FF2506DB168CF67700667FD9 /* SimpleWebServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleWebServer; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +182,7 @@
 		FFB028871666D76200CED715 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		FFB028891666D78400CED715 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		FFB0288B1666D79400CED715 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = ../../../../../../System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
+		FFB188961B28347600A63B60 /* IQSerialization.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IQSerialization.xcodeproj; path = IQSerialization.git/IQSerialization.xcodeproj; sourceTree = "<group>"; };
 		FFB6E06D1665613100A8867C /* libIQNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIQNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB6E0701665613100A8867C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FFB6E0751665613100A8867C /* IQNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQNetworking.h; sourceTree = "<group>"; };
@@ -259,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB188D01B283BBE00A63B60 /* IQSerialization.framework in Frameworks */,
 				FFB0288C1666D79400CED715 /* SystemConfiguration.framework in Frameworks */,
 				FFB0285D1666D57400CED715 /* Cocoa.framework in Frameworks */,
 			);
@@ -279,6 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB188AD1B28358D00A63B60 /* libIQSerialization.a in Frameworks */,
 				FFB6E0711665613100A8867C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,55 +257,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FF25065F168CDA4700667FD9 /* IQSerialization */ = {
-			isa = PBXGroup;
-			children = (
-				FF250683168CDA7900667FD9 /* yajl */,
-				FF250662168CDA6900667FD9 /* IQSerialization.h */,
-				FF250663168CDA6900667FD9 /* IQSerialization.m */,
-				FF250660168CDA6900667FD9 /* IQObjectFactory.h */,
-				FF250661168CDA6900667FD9 /* IQObjectFactory.m */,
-				FF250664168CDA6900667FD9 /* IQSerialization+JSON.h */,
-				FF250665168CDA6900667FD9 /* IQSerialization+JSON.m */,
-				FF250666168CDA6900667FD9 /* IQSerialization+SimpleXML.h */,
-				FF250667168CDA6900667FD9 /* IQSerialization+SimpleXML.m */,
-				FF250668168CDA6900667FD9 /* IQSerialization+XMLRPC.h */,
-				FF250669168CDA6900667FD9 /* IQSerialization+XMLRPC.m */,
-				FF25066A168CDA6900667FD9 /* IQXMLWriter.h */,
-				FF25066B168CDA6900667FD9 /* IQXMLWriter.m */,
-				FF25066C168CDA6900667FD9 /* NSData+Base64.h */,
-				FF25066D168CDA6900667FD9 /* NSData+Base64.m */,
-			);
-			name = IQSerialization;
-			sourceTree = "<group>";
-		};
-		FF250683168CDA7900667FD9 /* yajl */ = {
-			isa = PBXGroup;
-			children = (
-				FF25068E168CDAB800667FD9 /* yajl_alloc.c */,
-				FF25068F168CDAB800667FD9 /* yajl_alloc.h */,
-				FF250690168CDAB800667FD9 /* yajl_buf.c */,
-				FF250691168CDAB800667FD9 /* yajl_buf.h */,
-				FF250692168CDAB800667FD9 /* yajl_bytestack.h */,
-				FF250693168CDAB800667FD9 /* yajl_common.h */,
-				FF250694168CDAB800667FD9 /* yajl_encode.c */,
-				FF250695168CDAB800667FD9 /* yajl_encode.h */,
-				FF250696168CDAB800667FD9 /* yajl_gen.c */,
-				FF250697168CDAB800667FD9 /* yajl_lex.c */,
-				FF250698168CDAB800667FD9 /* yajl_lex.h */,
-				FF250699168CDAB800667FD9 /* yajl_parser.c */,
-				FF25069A168CDAB800667FD9 /* yajl_parser.h */,
-				FF25069B168CDAB800667FD9 /* yajl_tree.c */,
-				FF25069C168CDAB800667FD9 /* yajl.c */,
-				FF250684168CDA9A00667FD9 /* yajl_common.h */,
-				FF250685168CDA9A00667FD9 /* yajl_gen.h */,
-				FF250686168CDA9A00667FD9 /* yajl_parse.h */,
-				FF250687168CDA9A00667FD9 /* yajl_tree.h */,
-				FF250688168CDA9A00667FD9 /* yajl_version.h */,
-			);
-			name = yajl;
-			sourceTree = "<group>";
-		};
 		FF2506DF168CF67700667FD9 /* SimpleWebServer */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,9 +275,21 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
+		FFB188971B28347600A63B60 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFB1889F1B28347700A63B60 /* libIQSerialization.a */,
+				FFB188A31B28347700A63B60 /* IQSerialization.framework */,
+				FFB188A51B28347700A63B60 /* Tests_OSX.xctest */,
+				FFB188A11B28347700A63B60 /* Tests - iOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		FFB6E0621665613100A8867C = {
 			isa = PBXGroup;
 			children = (
+				FFB188961B28347600A63B60 /* IQSerialization.xcodeproj */,
 				FF2506F3168E453200667FD9 /* CFNetwork.framework */,
 				FF2506F1168E41C400667FD9 /* UIKit.framework */,
 				FF2506EF168E417100667FD9 /* MobileCoreServices.framework */,
@@ -377,7 +297,6 @@
 				FFB028891666D78400CED715 /* SystemConfiguration.framework */,
 				FFB028871666D76200CED715 /* CoreFoundation.framework */,
 				FFB6E0721665613100A8867C /* IQNetworking */,
-				FF25065F168CDA4700667FD9 /* IQSerialization */,
 				FFB6E0871665613200A8867C /* IQNetworkingTests */,
 				FF2506DF168CF67700667FD9 /* SimpleWebServer */,
 				FFB6E06F1665613100A8867C /* Frameworks */,
@@ -474,15 +393,8 @@
 				FF2506C1168CDCC400667FD9 /* IQNetworking.h in Headers */,
 				FF2506C2168CDCC600667FD9 /* IQTransferManager.h in Headers */,
 				FF2506C3168CDCC900667FD9 /* IQNetworkSynchronizedFolder.h in Headers */,
-				FF2506BA168CDCB400667FD9 /* IQSerialization.h in Headers */,
 				FF2506C4168CDCCB00667FD9 /* IQReachableStatus.h in Headers */,
 				FF2506C5168CDCCE00667FD9 /* IQHTTPServer.h in Headers */,
-				FF2506BB168CDCB600667FD9 /* IQObjectFactory.h in Headers */,
-				FF2506BC168CDCB700667FD9 /* IQSerialization+JSON.h in Headers */,
-				FF2506BD168CDCB900667FD9 /* IQSerialization+SimpleXML.h in Headers */,
-				FF2506BE168CDCBC00667FD9 /* IQSerialization+XMLRPC.h in Headers */,
-				FF2506BF168CDCBD00667FD9 /* IQXMLWriter.h in Headers */,
-				FF2506C0168CDCC100667FD9 /* NSData+Base64.h in Headers */,
 				FF2506EA168DA3A600667FD9 /* IQMIMEType.h in Headers */,
 				FF2506F7168E459000667FD9 /* IQStreamingMediaCache.h in Headers */,
 				FF7FB6E316AE6098008B6C60 /* IQProgressAgregator.h in Headers */,
@@ -494,25 +406,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF25064C168CD6E300667FD9 /* IQHTTPServer.h in Headers */,
-				FF250671168CDA6900667FD9 /* IQSerialization.h in Headers */,
-				FF250680168CDA6900667FD9 /* NSData+Base64.h in Headers */,
-				FF250674168CDA6900667FD9 /* IQSerialization+JSON.h in Headers */,
-				FF250677168CDA6900667FD9 /* IQSerialization+SimpleXML.h in Headers */,
-				FF25067A168CDA6900667FD9 /* IQSerialization+XMLRPC.h in Headers */,
-				FF25066E168CDA6900667FD9 /* IQObjectFactory.h in Headers */,
-				FF25067D168CDA6900667FD9 /* IQXMLWriter.h in Headers */,
-				FF250689168CDA9A00667FD9 /* yajl_common.h in Headers */,
-				FF25068A168CDA9A00667FD9 /* yajl_gen.h in Headers */,
-				FF25068B168CDA9A00667FD9 /* yajl_parse.h in Headers */,
-				FF25068C168CDA9A00667FD9 /* yajl_tree.h in Headers */,
-				FF25068D168CDA9A00667FD9 /* yajl_version.h in Headers */,
-				FF25069F168CDAB800667FD9 /* yajl_alloc.h in Headers */,
-				FF2506A2168CDAB800667FD9 /* yajl_buf.h in Headers */,
-				FF2506A3168CDAB800667FD9 /* yajl_bytestack.h in Headers */,
-				FF2506A4168CDAB800667FD9 /* yajl_common.h in Headers */,
-				FF2506A7168CDAB800667FD9 /* yajl_encode.h in Headers */,
-				FF2506AC168CDAB800667FD9 /* yajl_lex.h in Headers */,
-				FF2506AF168CDAB800667FD9 /* yajl_parser.h in Headers */,
 				FF2506CB168CE94A00667FD9 /* IQNetworking.h in Headers */,
 				FF2506CC168CE95800667FD9 /* IQReachableStatus.h in Headers */,
 				FF2506CD168CE95E00667FD9 /* IQNetworkSynchronizedFolder.h in Headers */,
@@ -554,6 +447,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FFB188CD1B283B8100A63B60 /* PBXTargetDependency */,
 			);
 			name = "IQNetworking - OSX";
 			productName = "IQNetworking - OSX";
@@ -577,7 +471,7 @@
 			name = "Tests - OSX";
 			productName = "IQNetworking - OSXTests";
 			productReference = FFB0286D1666D57400CED715 /* Tests - OSX.xctest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		FFB6E06C1665613100A8867C /* IQNetworking - iOS */ = {
 			isa = PBXNativeTarget;
@@ -590,6 +484,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FFB188AF1B28359500A63B60 /* PBXTargetDependency */,
 			);
 			name = "IQNetworking - iOS";
 			productName = IQNetworking;
@@ -613,7 +508,7 @@
 			name = "Tests - iOS";
 			productName = IQNetworkingTests;
 			productReference = FFB6E07E1665613200A8867C /* Tests - iOS.xctest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -621,7 +516,7 @@
 		FFB6E0641665613100A8867C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = EvolvIQ;
 			};
 			buildConfigurationList = FFB6E0671665613100A8867C /* Build configuration list for PBXProject "IQNetworking" */;
@@ -634,6 +529,12 @@
 			mainGroup = FFB6E0621665613100A8867C;
 			productRefGroup = FFB6E06E1665613100A8867C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FFB188971B28347600A63B60 /* Products */;
+					ProjectRef = FFB188961B28347600A63B60 /* IQSerialization.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FFB6E06C1665613100A8867C /* IQNetworking - iOS */,
@@ -645,6 +546,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FFB1889F1B28347700A63B60 /* libIQSerialization.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libIQSerialization.a;
+			remoteRef = FFB1889E1B28347700A63B60 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FFB188A11B28347700A63B60 /* Tests - iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Tests - iOS.xctest";
+			remoteRef = FFB188A01B28347700A63B60 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FFB188A31B28347700A63B60 /* IQSerialization.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = IQSerialization.framework;
+			remoteRef = FFB188A21B28347700A63B60 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FFB188A51B28347700A63B60 /* Tests_OSX.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests_OSX.xctest;
+			remoteRef = FFB188A41B28347700A63B60 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FFB0286A1666D57400CED715 /* Resources */ = {
@@ -677,7 +609,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=IQNetworking\nTARGET_NAME=\"IQNetworking - iOS\"\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${BUILD_ROOT}/${CONFIGURATION}-universal/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\nDEVICE_DIR=${CONFIGURATION_BUILD_DIR}/iphoneos\nSIMULATOR_DIR=${CONFIGURATION_BUILD_DIR}/iphonesimulator\nLIBRARY_NAME=lib${FMK_NAME}.a\n\n# Building both architectures.\nxcodebuild -configuration \"${CONFIGURATION}\" -target \"${TARGET_NAME}\" -sdk iphoneos CONFIGURATION_BUILD_DIR=${DEVICE_DIR}\nxcodebuild -configuration \"${CONFIGURATION}\" -target \"${TARGET_NAME}\" -sdk iphonesimulator CONFIGURATION_BUILD_DIR=${SIMULATOR_DIR}\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]; then\nrm -rf \"${INSTALL_DIR}\"\nfi\n\n# Creates and renews the final product folder.\nmkdir -p \"${INSTALL_DIR}\"\nmkdir -p \"${INSTALL_DIR}/Versions\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Resources\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Headers\"\n\n# Creates the internal links.\n# It MUST uses relative path, otherwise will not work when the folder is copied/moved.\nln -s \"${FRAMEWORK_VERSION}\" \"${INSTALL_DIR}/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${INSTALL_DIR}/Headers\"\nln -s \"Versions/Current/Resources\" \"${INSTALL_DIR}/Resources\"\nln -s \"Versions/Current/${FMK_NAME}\" \"${INSTALL_DIR}/${FMK_NAME}\"\n\n# Copies the headers and resources files to the final product folder.\ncp -R \"${DEVICE_DIR}/usr/local/include/\" \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Headers\"\n#cp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Resources/\"\n\n# Removes the binary and header from the resources folder.\n#rm -r \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Resources/Headers\" \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Resources/${FMK_NAME}\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${LIBRARY_NAME}\" \"${SIMULATOR_DIR}/${LIBRARY_NAME}\" -output \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/${FMK_NAME}\"\n";
+			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=IQNetworking\nTARGET_NAME=\"IQNetworking - iOS\"\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\n_TARGET_DIR=${BUILD_ROOT}/${CONFIGURATION}-universal\n_TARGET_DIR=${BUILT_PRODUCTS_DIR}\nINSTALL_DIR=${_TARGET_DIR}/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\nDEVICE_DIR=${CONFIGURATION_BUILD_DIR}/iphoneos\nSIMULATOR_DIR=${CONFIGURATION_BUILD_DIR}/iphonesimulator\nLIBRARY_NAME=lib${FMK_NAME}.a\n\n# Building both architectures.\nxcodebuild -configuration \"${CONFIGURATION}\" -target \"${TARGET_NAME}\" -sdk iphoneos CONFIGURATION_BUILD_DIR=${DEVICE_DIR}\nxcodebuild -configuration \"${CONFIGURATION}\" -target \"${TARGET_NAME}\" -sdk iphonesimulator CONFIGURATION_BUILD_DIR=${SIMULATOR_DIR}\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]; then\nrm -rf \"${INSTALL_DIR}\"\nfi\n\n# Creates and renews the final product folder.\nmkdir -p \"${INSTALL_DIR}\"\nmkdir -p \"${INSTALL_DIR}/Versions\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Resources\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Headers\"\n\n# Creates the internal links.\n# It MUST uses relative path, otherwise will not work when the folder is copied/moved.\nln -s \"${FRAMEWORK_VERSION}\" \"${INSTALL_DIR}/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${INSTALL_DIR}/Headers\"\nln -s \"Versions/Current/Resources\" \"${INSTALL_DIR}/Resources\"\nln -s \"Versions/Current/${FMK_NAME}\" \"${INSTALL_DIR}/${FMK_NAME}\"\n\n# Copies the headers and resources files to the final product folder.\ncp -R \"${DEVICE_DIR}/usr/local/include/\" \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Headers\"\n#cp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Resources/\"\n\n# Removes the binary and header from the resources folder.\n#rm -r \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Resources/Headers\" \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/Resources/${FMK_NAME}\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\nlipo -create \"${DEVICE_DIR}/${LIBRARY_NAME}\" \"${SIMULATOR_DIR}/${LIBRARY_NAME}\" -output \"${INSTALL_DIR}/Versions/${FRAMEWORK_VERSION}/${FMK_NAME}\"\n";
 		};
 		FFB0286B1666D57400CED715 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -725,21 +657,6 @@
 				FFB028841666D6F800CED715 /* IQNetworkSynchronizedFolder.m in Sources */,
 				FFB028851666D6FA00CED715 /* IQReachableStatus.m in Sources */,
 				FF25064E168CD6E300667FD9 /* IQHTTPServer.m in Sources */,
-				FF250670168CDA6900667FD9 /* IQObjectFactory.m in Sources */,
-				FF250673168CDA6900667FD9 /* IQSerialization.m in Sources */,
-				FF250676168CDA6900667FD9 /* IQSerialization+JSON.m in Sources */,
-				FF250679168CDA6900667FD9 /* IQSerialization+SimpleXML.m in Sources */,
-				FF25067C168CDA6900667FD9 /* IQSerialization+XMLRPC.m in Sources */,
-				FF25067F168CDA6900667FD9 /* IQXMLWriter.m in Sources */,
-				FF250682168CDA6900667FD9 /* NSData+Base64.m in Sources */,
-				FF25069E168CDAB800667FD9 /* yajl_alloc.c in Sources */,
-				FF2506A1168CDAB800667FD9 /* yajl_buf.c in Sources */,
-				FF2506A6168CDAB800667FD9 /* yajl_encode.c in Sources */,
-				FF2506A9168CDAB800667FD9 /* yajl_gen.c in Sources */,
-				FF2506AB168CDAB800667FD9 /* yajl_lex.c in Sources */,
-				FF2506AE168CDAB800667FD9 /* yajl_parser.c in Sources */,
-				FF2506B1168CDAB800667FD9 /* yajl_tree.c in Sources */,
-				FF2506B3168CDAB800667FD9 /* yajl.c in Sources */,
 				FF2506ED168DA3A600667FD9 /* IQMIMEType.m in Sources */,
 				FF2506FA168E459000667FD9 /* IQStreamingMediaCache.m in Sources */,
 			);
@@ -764,21 +681,6 @@
 				FFB6E0A71666123500A8867C /* IQNetworkSynchronizedFolder.m in Sources */,
 				FFB6E0AD16661A3900A8867C /* IQTransferManager.m in Sources */,
 				FF25064D168CD6E300667FD9 /* IQHTTPServer.m in Sources */,
-				FF25066F168CDA6900667FD9 /* IQObjectFactory.m in Sources */,
-				FF250672168CDA6900667FD9 /* IQSerialization.m in Sources */,
-				FF250675168CDA6900667FD9 /* IQSerialization+JSON.m in Sources */,
-				FF250678168CDA6900667FD9 /* IQSerialization+SimpleXML.m in Sources */,
-				FF25067B168CDA6900667FD9 /* IQSerialization+XMLRPC.m in Sources */,
-				FF25067E168CDA6900667FD9 /* IQXMLWriter.m in Sources */,
-				FF250681168CDA6900667FD9 /* NSData+Base64.m in Sources */,
-				FF25069D168CDAB800667FD9 /* yajl_alloc.c in Sources */,
-				FF2506A0168CDAB800667FD9 /* yajl_buf.c in Sources */,
-				FF2506A5168CDAB800667FD9 /* yajl_encode.c in Sources */,
-				FF2506A8168CDAB800667FD9 /* yajl_gen.c in Sources */,
-				FF2506AA168CDAB800667FD9 /* yajl_lex.c in Sources */,
-				FF2506AD168CDAB800667FD9 /* yajl_parser.c in Sources */,
-				FF2506B0168CDAB800667FD9 /* yajl_tree.c in Sources */,
-				FF2506B2168CDAB800667FD9 /* yajl.c in Sources */,
 				FF2506EC168DA3A600667FD9 /* IQMIMEType.m in Sources */,
 				FF2506F9168E459000667FD9 /* IQStreamingMediaCache.m in Sources */,
 				FF7FB6E416AE6098008B6C60 /* IQProgressAgregator.m in Sources */,
@@ -803,6 +705,16 @@
 			isa = PBXTargetDependency;
 			target = FFB0285A1666D57400CED715 /* IQNetworking - OSX */;
 			targetProxy = FFB028701666D57400CED715 /* PBXContainerItemProxy */;
+		};
+		FFB188AF1B28359500A63B60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "IQSerialization - iOS";
+			targetProxy = FFB188AE1B28359500A63B60 /* PBXContainerItemProxy */;
+		};
+		FFB188CD1B283B8100A63B60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "IQSerialization - OSX";
+			targetProxy = FFB188CC1B283B8100A63B60 /* PBXContainerItemProxy */;
 		};
 		FFB6E0851665613200A8867C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -937,7 +849,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -966,7 +877,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;

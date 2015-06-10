@@ -18,7 +18,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "IQSerialization.h"
+#import <IQSerialization/IQSerialization.h>
 #import "IQReachableStatus.h"
 #import "IQNetworkSynchronizedFolder.h"
 #import "IQMIMEType.h"
