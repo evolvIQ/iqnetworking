@@ -230,6 +230,14 @@
     return mime;
 }
 
+- (NSString*) type {
+    return [super type];
+}
+
+- (NSString*) subtype {
+    return [super subtype];
+}
+
 - (void) setType:(NSString *)t
 {
     self->type = t;

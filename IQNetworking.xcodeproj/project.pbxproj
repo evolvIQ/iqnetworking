@@ -69,6 +69,22 @@
 		FFB0288C1666D79400CED715 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB0288B1666D79400CED715 /* SystemConfiguration.framework */; };
 		FFB188AD1B28358D00A63B60 /* libIQSerialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB1889F1B28347700A63B60 /* libIQSerialization.a */; };
 		FFB188D01B283BBE00A63B60 /* IQSerialization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB188A31B28347700A63B60 /* IQSerialization.framework */; };
+		FFB188D61B283E0F00A63B60 /* IQStreamObjectTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188D51B283E0F00A63B60 /* IQStreamObjectTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188D71B283E0F00A63B60 /* IQStreamObjectTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188D51B283E0F00A63B60 /* IQStreamObjectTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188DC1B283E1500A63B60 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188DB1B283E1500A63B60 /* NSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188DD1B283E1500A63B60 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188DB1B283E1500A63B60 /* NSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188E11B283E1D00A63B60 /* IQSerialization+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188DE1B283E1D00A63B60 /* IQSerialization+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188E21B283E1D00A63B60 /* IQSerialization+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188DE1B283E1D00A63B60 /* IQSerialization+JSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188E31B283E1D00A63B60 /* IQSerialization+XMLRPC.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188DF1B283E1D00A63B60 /* IQSerialization+XMLRPC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188E41B283E1D00A63B60 /* IQSerialization+XMLRPC.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188DF1B283E1D00A63B60 /* IQSerialization+XMLRPC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188E51B283E1D00A63B60 /* IQSerialization+UBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188E01B283E1D00A63B60 /* IQSerialization+UBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188E61B283E1D00A63B60 /* IQSerialization+UBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188E01B283E1D00A63B60 /* IQSerialization+UBJSON.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188E81B283E2100A63B60 /* IQXMLWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188E71B283E2100A63B60 /* IQXMLWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188E91B283E2100A63B60 /* IQXMLWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188E71B283E2100A63B60 /* IQXMLWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188EB1B283E2500A63B60 /* IQObjectFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188EA1B283E2500A63B60 /* IQObjectFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188EC1B283E2500A63B60 /* IQObjectFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188EA1B283E2500A63B60 /* IQObjectFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188EF1B283E4A00A63B60 /* IQSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188EE1B283E4A00A63B60 /* IQSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB188F01B283E4A00A63B60 /* IQSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB188EE1B283E4A00A63B60 /* IQSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFB6E0711665613100A8867C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E0701665613100A8867C /* Foundation.framework */; };
 		FFB6E0831665613200A8867C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E0701665613100A8867C /* Foundation.framework */; };
 		FFB6E0861665613200A8867C /* libIQNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB6E06D1665613100A8867C /* libIQNetworking.a */; };
@@ -183,6 +199,14 @@
 		FFB028891666D78400CED715 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		FFB0288B1666D79400CED715 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = ../../../../../../System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
 		FFB188961B28347600A63B60 /* IQSerialization.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IQSerialization.xcodeproj; path = IQSerialization.git/IQSerialization.xcodeproj; sourceTree = "<group>"; };
+		FFB188D51B283E0F00A63B60 /* IQStreamObjectTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IQStreamObjectTokenizer.h; path = ../IQSerialization.git/IQSerialization/IQStreamObjectTokenizer.h; sourceTree = "<group>"; };
+		FFB188DB1B283E1500A63B60 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "../IQSerialization.git/IQSerialization/NSData+Base64.h"; sourceTree = "<group>"; };
+		FFB188DE1B283E1D00A63B60 /* IQSerialization+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IQSerialization+JSON.h"; path = "../IQSerialization.git/IQSerialization/IQSerialization+JSON.h"; sourceTree = "<group>"; };
+		FFB188DF1B283E1D00A63B60 /* IQSerialization+XMLRPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IQSerialization+XMLRPC.h"; path = "../IQSerialization.git/IQSerialization/IQSerialization+XMLRPC.h"; sourceTree = "<group>"; };
+		FFB188E01B283E1D00A63B60 /* IQSerialization+UBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "IQSerialization+UBJSON.h"; path = "../IQSerialization.git/IQSerialization/IQSerialization+UBJSON.h"; sourceTree = "<group>"; };
+		FFB188E71B283E2100A63B60 /* IQXMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IQXMLWriter.h; path = ../IQSerialization.git/IQSerialization/IQXMLWriter.h; sourceTree = "<group>"; };
+		FFB188EA1B283E2500A63B60 /* IQObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IQObjectFactory.h; path = ../IQSerialization.git/IQSerialization/IQObjectFactory.h; sourceTree = "<group>"; };
+		FFB188EE1B283E4A00A63B60 /* IQSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IQSerialization.h; path = ../IQSerialization.git/IQSerialization/IQSerialization.h; sourceTree = "<group>"; };
 		FFB6E06D1665613100A8867C /* libIQNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIQNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB6E0701665613100A8867C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FFB6E0751665613100A8867C /* IQNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQNetworking.h; sourceTree = "<group>"; };
@@ -286,6 +310,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		FFB188ED1B283E2E00A63B60 /* IQSerialization-exported */ = {
+			isa = PBXGroup;
+			children = (
+				FFB188EE1B283E4A00A63B60 /* IQSerialization.h */,
+				FFB188EA1B283E2500A63B60 /* IQObjectFactory.h */,
+				FFB188E71B283E2100A63B60 /* IQXMLWriter.h */,
+				FFB188DE1B283E1D00A63B60 /* IQSerialization+JSON.h */,
+				FFB188DF1B283E1D00A63B60 /* IQSerialization+XMLRPC.h */,
+				FFB188E01B283E1D00A63B60 /* IQSerialization+UBJSON.h */,
+				FFB188DB1B283E1500A63B60 /* NSData+Base64.h */,
+				FFB188D51B283E0F00A63B60 /* IQStreamObjectTokenizer.h */,
+			);
+			name = "IQSerialization-exported";
+			sourceTree = "<group>";
+		};
 		FFB6E0621665613100A8867C = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +373,7 @@
 		FFB6E0721665613100A8867C /* IQNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				FFB188ED1B283E2E00A63B60 /* IQSerialization-exported */,
 				FFB6E0751665613100A8867C /* IQNetworking.h */,
 				FFB6E0AB16661A3900A8867C /* IQTransferManager.h */,
 				FFB6E0AC16661A3900A8867C /* IQTransferManager.m */,
@@ -390,14 +430,22 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB188EB1B283E2500A63B60 /* IQObjectFactory.h in Headers */,
 				FF2506C1168CDCC400667FD9 /* IQNetworking.h in Headers */,
+				FFB188D61B283E0F00A63B60 /* IQStreamObjectTokenizer.h in Headers */,
+				FFB188DC1B283E1500A63B60 /* NSData+Base64.h in Headers */,
+				FFB188E81B283E2100A63B60 /* IQXMLWriter.h in Headers */,
+				FFB188E31B283E1D00A63B60 /* IQSerialization+XMLRPC.h in Headers */,
 				FF2506C2168CDCC600667FD9 /* IQTransferManager.h in Headers */,
 				FF2506C3168CDCC900667FD9 /* IQNetworkSynchronizedFolder.h in Headers */,
 				FF2506C4168CDCCB00667FD9 /* IQReachableStatus.h in Headers */,
 				FF2506C5168CDCCE00667FD9 /* IQHTTPServer.h in Headers */,
+				FFB188E11B283E1D00A63B60 /* IQSerialization+JSON.h in Headers */,
 				FF2506EA168DA3A600667FD9 /* IQMIMEType.h in Headers */,
+				FFB188E51B283E1D00A63B60 /* IQSerialization+UBJSON.h in Headers */,
 				FF2506F7168E459000667FD9 /* IQStreamingMediaCache.h in Headers */,
 				FF7FB6E316AE6098008B6C60 /* IQProgressAgregator.h in Headers */,
+				FFB188EF1B283E4A00A63B60 /* IQSerialization.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,14 +453,22 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB188EC1B283E2500A63B60 /* IQObjectFactory.h in Headers */,
 				FF25064C168CD6E300667FD9 /* IQHTTPServer.h in Headers */,
+				FFB188D71B283E0F00A63B60 /* IQStreamObjectTokenizer.h in Headers */,
+				FFB188DD1B283E1500A63B60 /* NSData+Base64.h in Headers */,
+				FFB188E91B283E2100A63B60 /* IQXMLWriter.h in Headers */,
+				FFB188E41B283E1D00A63B60 /* IQSerialization+XMLRPC.h in Headers */,
 				FF2506CB168CE94A00667FD9 /* IQNetworking.h in Headers */,
 				FF2506CC168CE95800667FD9 /* IQReachableStatus.h in Headers */,
 				FF2506CD168CE95E00667FD9 /* IQNetworkSynchronizedFolder.h in Headers */,
 				FF2506CE168CE96200667FD9 /* IQTransferManager.h in Headers */,
+				FFB188E21B283E1D00A63B60 /* IQSerialization+JSON.h in Headers */,
 				FF2506EB168DA3A600667FD9 /* IQMIMEType.h in Headers */,
+				FFB188E61B283E1D00A63B60 /* IQSerialization+UBJSON.h in Headers */,
 				FF2506F8168E459000667FD9 /* IQStreamingMediaCache.h in Headers */,
 				FFBAC78516E5639800D69BCF /* IQProgressAgregator.h in Headers */,
+				FFB188F01B283E4A00A63B60 /* IQSerialization.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
